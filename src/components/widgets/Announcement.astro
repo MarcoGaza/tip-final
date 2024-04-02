@@ -18,7 +18,7 @@ const Announcements = await findActiveAnnouncements();
     width: max-content;
     position: absolute;
     white-space: nowrap;
-    animation: marquee 60s linear infinite;
+    animation: marquee 80s linear infinite;
   }
   
   @keyframes marquee {
@@ -27,8 +27,14 @@ const Announcements = await findActiveAnnouncements();
   }
 </style>
 
-<div class="marquee h-10 bg-black">
+<div class="marquee h-10 bg-black flex items-center">
   <span class="marquee-content text-primary">
-    {Announcements.map(announcement => announcement.excerpt).join(' '.repeat(80))}
+    {Announcements.map((announcement, index) => (
+      <Fragment key={index}>
+        {announcement.excerpt}
+        {index < Announcements.length - 1 && <span class="mx-[400px]"></span>}
+      </Fragment>
+    ))}
   </span>
 </div>
+

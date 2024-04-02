@@ -1,5 +1,4 @@
 ---
-import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 import type { CallToAction } from '~/types';
 
@@ -24,8 +23,12 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+<section class="bg-transparent relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+
+
+  
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
@@ -33,7 +36,7 @@ const {
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-yellow-200 font-bold tracking-wide uppercase"
+              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
               set:html={tagline}
             />
           )
@@ -41,7 +44,7 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-5xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
@@ -70,19 +73,7 @@ const {
         {
           image && (
             <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
-              )}
+              
             </div>
           )
         }
@@ -90,3 +81,247 @@ const {
     </div>
   </div>
 </section>
+
+<script type="module">
+  const container = document.querySelector('.container');
+  if (container) {
+    for (let i = 0; i < 400; i++) {
+      const trigger = document.createElement('div');
+      trigger.classList.add('trigger');
+      container.appendChild(trigger);
+    }
+
+    const monitor = document.createElement('div');
+    monitor.classList.add('monitor');
+    container.appendChild(monitor);
+
+    const cameraX = document.createElement('div');
+    cameraX.classList.add('camera', 'x');
+    monitor.appendChild(cameraX);
+
+    const cameraY = document.createElement('div');
+    cameraY.classList.add('camera', 'y');
+    cameraX.appendChild(cameraY);
+
+    const cameraZ = document.createElement('div');
+    cameraZ.classList.add('camera', 'z');
+    cameraY.appendChild(cameraZ);
+
+    const city = document.createElement('div');
+    city.classList.add('city');
+    cameraZ.appendChild(city);
+
+    for (let i = 0; i < 200; i++) {
+      const area = document.createElement('div');
+      area.classList.add('area');
+      city.appendChild(area);
+
+      const building = document.createElement('div');
+      building.classList.add('building');
+      area.appendChild(building);
+
+      const walls = ['o-front', 'o-left', 'o-right', 'o-back'];
+      walls.forEach(wall => {
+        const buildingWall = document.createElement('div');
+        buildingWall.classList.add('building_wall', wall);
+        building.appendChild(buildingWall);
+      });
+    }
+  }
+</script>
+
+<style lang="scss">
+@use "sass:math";
+
+$speed: 20000ms;
+
+  .container {
+    background: transparent; /* Corrected */
+    height: 100vh;
+    overflow: hidden;
+    perspective: 600px;
+  }
+  
+  * {
+    transform-style: preserve-3d;
+  }
+  
+  .container {
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(20, 5vh);
+    grid-template-columns: repeat(20, 5vw);
+  }
+  
+  .trigger {
+    @for $i from 1 through 20 {
+      @for $j from 1 through 20 {
+        $key: ($i - 1) * 20 + $j;
+        &:nth-child(#{$key}) {
+          &:hover ~ .monitor {
+            .camera {
+              &.x {
+                transform: rotateX(($i - 1) * 3 + 30deg);
+              }
+              
+              &.y {
+                transform: translateZ(($i - 20) * 50px);
+              }
+              
+              &.z {
+                transform: rotateZ(($j - 10) * 5 - 45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .monitor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transform-origin: 50% 0%;
+    transform: translateZ(-200px);
+  }
+  
+  .camera {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: 2000ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    
+    &.z {
+      transform: rotateZ(-45deg);
+    }
+    
+    &.x {
+      transform: rotateX(45deg);
+    }
+  }
+  
+  .building {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #2586ea;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    animation: building $speed linear infinite;
+  
+    &_wall {
+      position: absolute;
+  
+      &::before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      
+      &.o-left, &.o-front, &.o-right, &.o-back {
+        backface-visibility: hidden;
+        animation: yellow $speed linear infinite;
+      }
+  
+      &.o-left, &.o-right {
+        height: 100%;
+        transform: translateX(-100%) rotateY(-90deg);
+      }
+      
+      &.o-front, &.o-back {
+        width: 100%;
+        transform: translateY(100%) rotateX(-90deg);
+      }
+  
+      &.o-left::before, &.o-front::before, &.o-back::before {
+        background: linear-gradient(45deg, rgba(#fff, 1) 30%, rgba(#fff, 0) 100%);
+      }
+  
+      &.o-right::before {
+        background: linear-gradient(-45deg, rgba(#fff, 1) 30%, rgba(#fff, 0) 100%);
+      }
+    }
+  }
+  
+  .city {
+    width: 100%;
+    height: 100vh;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  .area {
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    animation: slide $speed linear infinite;
+    
+    @for $i from 1 through 200 {
+    $width: random(150) + 30px;
+    $height: random(1000) + 100px;
+    $depth: random(150) + 30px;
+    $top: random(100) + 0%;
+    $left: random(140) - 20%;
+    $delay: random(math.div($speed, 1ms)) * -1ms;
+
+  
+      &:nth-child(#{$i}) {
+        top: $top;
+        left: $left;
+        width: $width;
+        height: $depth;
+        animation-delay: $delay;
+        
+        .building {
+          transform: translate(-50%, -50%) translateZ($height);
+          animation-delay: $delay;
+  
+          &_wall {
+            &.o-left,
+            &.o-right {
+              width: $height;
+              animation-delay: $delay;
+            }
+            
+            &.o-front,
+            &.o-back {
+              height: $height;
+              animation-delay: $delay;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(200vh) translateY(-200vh);
+    }
+    
+    100% {
+      transform: translateX(-200vh) translateY(200vh);
+    }
+  }
+  
+  @keyframes building, yellow, blue {
+    0%, 10%, 95%, 100% {
+      background: #fff;
+    }
+    50% {
+      background: #eee;
+    }
+    90% {
+      background: #ddd;
+    }
+  }
+  
+</style>
+

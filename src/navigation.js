@@ -14,7 +14,7 @@ export const headerData = {
         { text: 'Courses', href: getPermalink('/courses') },
         { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
         { text: 'News', href: getBlogPermalink() },
-        { text: 'Awards', href: getPermalink('/awards') },
+        { text: 'Accolades', href: getPermalink('/accolades') },
         { text: 'Events', href: getPermalink('event', 'category') },
         { text: 'Organizations', href: getPermalink('category/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
@@ -29,47 +29,38 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'TIP',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'About', href: getPermalink('/about-tip') },
+        { text: 'Accreditations', href: getPermalink('/accreditations') },
+        { text: 'Admissions', href: getPermalink('/admissions') },
+        { text: 'Program Offerings', href: getPermalink('/program') },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Industrial Engineering Department',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Department Overview', href: getPermalink('/industrial-engineering') },
+        { text: 'Curriculum', href: getPermalink('/curriculum') },
+        { text: 'Courses', href: getPermalink('/courses') },
+        { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
       ],
     },
     {
-      title: 'Support',
+      title: 'Pages',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'News', href: getBlogPermalink() },
+        { text: 'Awards', href: getPermalink('/awards') },
+        { text: 'Events', href: getPermalink('event', 'category') },
+        { text: 'Organizations', href: getPermalink('category/organizations') },
+        { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Company',
+      title: 'Legal',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Terms', href: getPermalink('/terms') },
+        { text: 'Privacy Policy', href: getPermalink('/privacy') },
       ],
     },
   ],
@@ -85,7 +76,6 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
   ],
   footNote: `
-    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)]"></span>
-    Made by <a class="text-yellow-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    Made by <a class="text-yellow-600 underline dark:text-muted" href="https://tip.edu.ph/"> Technological Institute of the Philippines</a> · All rights reserved.
   `,
 };

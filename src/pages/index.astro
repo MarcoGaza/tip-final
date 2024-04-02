@@ -25,29 +25,29 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'Learn more',
+        href: '/about',
         target: '_blank',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.webp', alt: 'AstroWind Hero Image' }}
   >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
-    </Fragment>
+  <Fragment slot="title">
+    Technological Institute of the Philippines
+    <br />
+    <span class="text-accent dark:text-white highlight">Industrial Engineering Department</span>
+  </Fragment>
+  
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-yellow-600">AstroWind: Production-ready.</span>
-       Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages
-      & Blogs.
-    </Fragment>
+  <Fragment slot="subtitle">
+    <span class="hidden sm:inline">
+      <span class="font-semibold">TIP IE Department</span> is dedicated to excellence in teaching, innovation, and research in Industrial Engineering.
+    </span>
+    <span class="block mb-1 sm:hidden font-bold text-yellow-600">TIP IE Dept: Excellence & Innovation.</span>
+    Offering a comprehensive curriculum that prepares students for leadership in the engineering field. Engaging with industry partners, providing students with real-world experience and job opportunities.
+  </Fragment>
+  
   </Hero>
 
   <!-- Note Widget ******************* -->
@@ -57,81 +57,90 @@ const metadata = {
   <!-- Features Widget *************** -->
 
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
+  id="features"
+  tagline="Program Highlights"
+  title="Why Industrial Engineering at TIP?"
+  subtitle="Discover the unique advantages of pursuing your IE degree with us. A leading choice for future engineers."
+  items={[
+    {
+      title: 'Comprehensive Curriculum',
+      description:
+        'Our curriculum combines technical skills with practical application, preparing students for diverse challenges in the industry.',
+      icon: 'tabler:brand-tailwind',
+    },
+    {
+      title: 'Hands-on Learning',
+      description:
+        'Through labs, workshops, and real-world projects, students gain practical experience that complements their academic knowledge.',
+      icon: 'tabler:components',
+    },
+    {
+      title: 'Industry Connections',
+      description:
+        'Strong ties with industry leaders offer internship opportunities, ensuring students are ready to step into their careers upon graduation.',
+      icon: 'tabler:list-check',
+    },
+    {
+      title: 'State-of-the-Art Facilities',
+      description:
+        'Our campus is equipped with the latest technology in engineering education, from advanced labs to collaborative workspaces.',
+      icon: 'tabler:rocket',
+    },
+    {
+      title: 'Career Readiness',
+      description:
+        'Focused on market needs, our program ensures graduates possess the skills and knowledge demanded by top employers.',
+      icon: 'tabler:arrows-right-left',
+    },
+    {
+      title: 'Innovative Research Opportunities',
+      description:
+        'Engage in cutting-edge research with our faculty on projects that push the boundaries of engineering solutions.',
+      icon: 'tabler:bulb',
+    },
+  ]}
+/>
 
-  <!-- Content Widget **************** -->
+
+<Note />
+
+
+<BlogLatestPosts
+  title="Discover More on Our Blog"
+  information="Our blog features the latest advancements, student projects, and research in Industrial Engineering. Dive into articles that showcase the innovative work of our faculty and students at TIP."
+/>
+
+  <!-- Content Widget: Industrial Engineering Focus **************** -->
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Our Focus"
+    title="Empowering Future Industrial Engineers"
     items={[
       {
-        title: 'Built on top of Astro 4.0',
+        title: 'Innovative Curriculum',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Our curriculum is designed to challenge and inspire our students, blending theoretical knowledge with practical application in areas such as systems analysis, operations research, and production planning.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'State-of-the-Art Facilities',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Students have access to cutting-edge laboratories and resources, enabling hands-on experience with the latest technologies and tools used in the industry today.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'Industry Partnerships',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Our strong connections with leading companies provide students with internship opportunities, real-world projects, and networking that pave the way for successful careers.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+      alt: 'Engineering Innovation',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-       Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">A Foundation for Success</h3>
+      Our program is committed to developing not just skilled engineers, but also innovative thinkers and leaders prepared for the challenges of tomorrow.
     </Fragment>
 
     <Fragment slot="bg">
@@ -139,37 +148,32 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget: Student Life and Achievements **************** -->
 
   <Content
     isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Vibrant Student Life',
+        description: `Experience a supportive and dynamic campus life with numerous clubs, organizations, and events designed to enhance your personal growth and leadership skills.`,
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'Notable Achievements',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+          'Our students consistently excel in national and international competitions, showcasing their innovation and expertise on a global stage.',
       },
       {
-        title: 'Fully responsive design',
+        title: 'Community Engagement',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+          "We believe in the power of engineering to transform communities. Our students participate in various outreach programs, applying their skills to solve real-world problems and make a positive impact.",
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+      alt: 'Student Life at TIP',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content">Join our community of forward-thinkers.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -177,223 +181,266 @@ const metadata = {
   </Content>
 
   <!-- Content Widget **************** -->
+
+  <!-- Content Widget: Technological Innovation and Engagement **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Technological Innovation',
+        description: `Our department is at the forefront of integrating cutting-edge technologies and methodologies to enhance both learning and practical applications in the field of industrial engineering.`,
+      },
+      {
+        title: 'Engagement with Industry',
+        description:
+          'Strong partnerships with industry leaders provide students with unparalleled opportunities for internships, cooperative education, and real-world problem solving.',
+      },
+      {
+        title: 'Sustainability and Social Responsibility',
+        description:
+          "We're committed to projects and research that not only advance technological capabilities but also promote sustainability and social responsibility in engineering practices.",
+      },
+      {
+        title: 'Global Opportunities',
+        description:
+          'Prepare for a global career with our international programs and collaborations, offering students global perspectives and experiences in industrial engineering.',
+      },
+    ]}
+    image={{
+      src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+      alt: 'Innovation in Engineering',
+    }}
+  >
+    <Fragment slot="content">Innovation at the heart of Industrial Engineering.</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget: Your Path to Becoming an Industrial Engineer **************** -->
 
   <Content
     isReversed
     isAfterContent
     items={[
       {
-        title: 'Enhanced user engagement',
+        title: 'Admissions Process',
         description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+          'Begin your journey to becoming an industrial engineer. Discover the steps for applying to our program, from initial inquiry to enrollment.',
       },
       {
-        title: 'Continuous improvement',
+        title: 'Scholarships and Financial Aid',
         description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
+          'Explore our range of scholarships and financial aid options designed to support students in their education and career aspirations.',
       },
       {
-        title: 'Time and resource efficiency',
+        title: 'Career Development',
         description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
+          'With our dedicated career services, students are prepared for successful careers through internships, mentorships, and placement services.',
       },
       {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
+        title: 'Alumni Network',
+        description: `Join a vibrant community of alumni who are leaders in their fields. Our alumni network provides support, resources, and opportunities for lifelong professional growth.`,
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+      alt: 'Path to Engineering Excellence',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content">Your pathway to becoming a leader in Industrial Engineering.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
 
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
+<!-- Steps Widget: How to Join the IE Department at TIP **************** -->
 
-  <!-- Features2 Widget ************** -->
+<Steps
+  title="Start Your Journey in Industrial Engineering at TIP"
+  items={[
+    {
+      title: 'Step 1: <span class="font-medium">Inquire</span>',
+      description:
+        "Visit our admissions page or contact us directly to learn more about the Industrial Engineering program. Our team is ready to assist you with any questions you might have.",
+      icon: 'tabler:info-circle',
+    },
+    {
+      title: 'Step 2: <span class="font-medium">Apply</span>',
+      description:
+        "Complete your application through our online portal. Submit all required documents, including academic records and recommendation letters, to secure your place in the next academic cycle.",
+      icon: 'tabler:edit',
+    },
+    {
+      title: 'Step 3: <span class="font-medium">Prepare</span>',
+      description:
+        "Once accepted, take the necessary steps to prepare for your academic journey. This includes attending orientation, registering for classes, and getting involved in student organizations.",
+      icon: 'tabler:clipboard-list',
+    },
+    {
+      title: 'Welcome!',
+      description:
+        "You're now part of the TIP Industrial Engineering family! Embark on this exciting journey towards becoming a leader in innovation and efficiency.",
+      icon: 'tabler:check',
+    },
+  ]}
+  image={{
+    src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+    alt: 'Engineering Students at TIP',
+  }}
+/>
 
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+<!-- Features2 Widget: IE Department Highlights **************** -->
 
-  <!-- HighlightedPosts Widget ******* -->
+<Features2
+  title="Key Features of the IE Program at TIP"
+  subtitle="What sets our Industrial Engineering program apart"
+  tagline="Highlights"
+  items={[
+    {
+      title: 'Comprehensive Curriculum',
+      description: "Our curriculum is designed to cover all facets of Industrial Engineering, ensuring a well-rounded education.",
+      icon: 'flat-color-icons:template',
+    },
+    {
+      title: 'State-of-the-Art Labs',
+      description:
+        "Equipped with the latest technology, our labs offer students hands-on experience that prepares them for the real world.",
+      icon: 'flat-color-icons:gallery',
+    },
+    {
+      title: 'Industry Partnerships',
+      description:
+        'Collaborations with leading companies provide students with internship opportunities and exposure to industrial practices.',
+      icon: 'flat-color-icons:approval',
+    },
+    {
+      title: 'Dynamic Faculty',
+      description:
+        "Our faculty includes renowned scholars and experienced professionals, offering insights into both theory and practice.",
+      icon: 'flat-color-icons:document',
+    },
+    {
+      title: 'Career Readiness',
+      description:
+        "Our program's focus on practical skills ensures graduates are ready to meet the demands of the industry.",
+      icon: 'flat-color-icons:advertising',
+    },
+    {
+      title: 'Scholarship Opportunities',
+      description: 'We offer a variety of scholarships to support students financially throughout their studies.',
+      icon: 'flat-color-icons:currency-exchange',
+    },
+    {
+      title: 'Alumni Network',
+      description: 'Our extensive alumni network opens doors to mentorship opportunities and professional connections.',
+      icon: 'flat-color-icons:voice-presentation',
+    },
+    {
+      title: 'Student Support Services',
+      description:
+        'From academic counseling to career services, our dedicated staff is here to support students every step of the way.',
+      icon: 'flat-color-icons:business-contact',
+    },
+    {
+      title: 'Innovative Research',
+      description: "We're at the forefront of research in Industrial Engineering, pushing boundaries and innovating solutions.",
+      icon: 'flat-color-icons:database',
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features2>
 
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
 
-  <!-- FAQs Widget ******************* -->
 
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
 
-  <!-- Stats Widget ****************** -->
 
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
 
-  <!-- CallToAction Widget *********** -->
+<!-- FAQs Widget ******************* -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
+<FAQs
+  title="Frequently Asked Questions"
+  subtitle="Get answers to common questions about our Industrial Engineering program."
+  tagline="FAQs"
+  classes={{ container: 'max-w-6xl' }}
+  items={[
+    {
+      title: 'Why choose Industrial Engineering at TIP?',
+      description:
+        "Our program is known for its comprehensive curriculum, state-of-the-art facilities, and strong industry connections, preparing students for successful careers.",
+    },
+    {
+      title: 'How can I apply?',
+      description:
+        "Applying to our program is easy! Visit our admissions page for detailed instructions and requirements.",
+    },
+    {
+      title: 'What are the career prospects?',
+      description:
+        "Graduates can pursue various roles in manufacturing, systems engineering, operations research, and more, with many alumni holding leadership positions across industries.",
+    },
+    {
+      title: 'Do you offer internships?',
+      description:
+        "Yes, we have partnerships with leading companies and organizations to offer our students valuable internship opportunities.",
+    },
+    {
+      title: 'Can I get involved in research?',
+      description:
+        "Absolutely! We encourage our students to engage in research projects with our faculty, often resulting in published papers and conference presentations.",
+    },
+    {
+      title: 'Are there opportunities for international exposure?',
+      description:
+        "Definitely. We offer various international exchange programs and collaborations that allow students to gain global perspectives and experiences, enhancing their education and career prospects.",
+    },
+  ]}
+/>
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+
+<!-- Stats Widget ****************** -->
+
+<Stats
+  stats={[
+    { title: 'Enrolled Students', amount: '800+' },
+    { title: 'Faculty Members', amount: '50+' },
+    { title: 'Research Projects', amount: '120+' },
+    { title: 'Industry Partners', amount: '30+' },
+  ]}
+/>
+
+<!-- CallToAction Widget *********** -->
+
+<CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Apply Now',
+      href: '/admissions',
+      target: '_self',
+    },
+    {
+      variant: 'secondary',
+      text: 'Contact Us',
+      href: '/contact',
+      target: '_self',
+    },
+  ]}
+>
+  <Fragment slot="title">
+    Join the Future of Industrial Engineering
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    Take the first step towards an exciting career by applying to the Industrial Engineering program at TIP. Discover how you can make a difference in the world with us.
+  </Fragment>
+</CallToAction>
+
 </Layout>
