@@ -1,0 +1,34 @@
+---
+// Import the necessary function and data types
+import { findActiveAnnouncements } from "~/utils/blog";
+import type { Post } from '~/types';
+
+const Announcements = await findActiveAnnouncements();
+---
+
+<style>
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee-content {
+    display: block;
+    width: max-content;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 60s linear infinite;
+  }
+  
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+</style>
+
+<div class="marquee h-10 bg-black">
+  <span class="marquee-content text-primary">
+    {Announcements.map(announcement => announcement.excerpt).join(' '.repeat(80))}
+  </span>
+</div>
