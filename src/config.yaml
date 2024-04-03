@@ -11,7 +11,7 @@ metadata:
   title:
     default: Industrial Engineering Department
     template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "🚀 Suitable for Startups, Small Business, SaaS Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.",
   robots:
     index: true
     follow: true
@@ -71,39 +71,42 @@ analytics:
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  tokens:
-    default:
-      fonts:
-        sans: InterVariable
-        serif: var(--ph-font-sans)
-        heading: var(--ph-font-sans)
-      colors:
-        default: rgb(16 16 16)
-        heading: rgb(0 0 0)
-        muted: rgb(40 40 40)
-        bgPage: rgb(255 255 255)
-        primary: rgb(252 226 5)
-        secondary: rgb(33 54 99)
-        accent: rgb(128 128 128)
-        info: rgb(119 182 234)
-        success: rgb(54 211 153)
-        warning: rgb(251 189 35)
-        error: rgb(248 114 114)
-        link: var(--ph-color-primary)
-        linkActive: var(--ph-color-link)
-    dark:
-      fonts: {}
-      colors:
-        default: rgb(247, 248, 248)
-        heading: rgb(247, 248, 248)
-        muted: rgb(200, 188, 208)
-        bgPage: rgb(3 6 32)
-        primary: rgb(252 226 5)
-        secondary: rgb(33 54 99)
-        accent: rgb(135 77 2267)
-        info: rgb(58 191 248)
-        success: rgb(54 211 153)
-        warning: rgb(251 189 35)
-        error: rgb(248 114 114)
-        link: var(--ph-color-primary)
-        linkActive: var(--ph-color-link)
+tokens:
+  default:
+    fonts:
+      sans: 'Nunito', sans-serif
+      serif: 'Literata', serif
+      heading: 'Poppins', sans-serif
+    colors:
+      default: rgb(16 16 16)
+      heading: rgb(0 0 0)
+      muted: rgb(16 16 16 / 66%)
+      bgPage: rgb(255 255 255)
+      primary: rgb(252 226 5)
+      secondary: rgb(33 54 99)
+      accent: rgb(196 145 2)
+      info: rgb(119 182 234)
+      success: rgb(54 211 153)
+      warning: rgb(251 189 35)
+      error: rgb(248 114 114)
+      link: rgb(252 226 5)
+      linkActive: var(--aw-color-secondary)
+  dark:
+    fonts:
+      sans: 'Nunito', sans-serif
+      serif: 'Literata', serif
+      heading: 'Poppins', sans-serif
+    colors:
+      default: rgb(229 236 246)
+      heading: rgb(229 236 246)
+      muted: rgb(229 236 246 / 66%)
+      bgPage: rgb(3 6 32)
+      primary: rgb(252 226 5)
+      secondary: rgb(33 54 99)
+      accent: rgb(196 145 2)
+      info: rgb(58 191 248)
+      success: rgb(54 211 153)
+      warning: rgb(251 189 35)
+      error: rgb(248 114 114)
+      link: rgb(252 226 5)
+      linkActive: var(--aw-color-secondary)
