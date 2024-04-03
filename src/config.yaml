@@ -1,5 +1,5 @@
 site:
-  name: Industrial Engineering Department
+  name: TIP Industrial Engineering Department
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Industrial Engineering Department
+    default: TIP Industrial Engineering Department
     template: '%s — AstroWind'
-  description: "🚀 Suitable for Startups, Small Business, SaaS Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.",
+  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Industrial Engineering Department
+    site_name: TIP Industrial Engineering Department
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -69,44 +69,43 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
-
-tokens:
-  default:
-    fonts:
-      sans: 'Nunito', sans-serif
-      serif: 'Literata', serif
-      heading: 'Poppins', sans-serif
-    colors:
-      default: rgb(16 16 16)
-      heading: rgb(0 0 0)
-      muted: rgb(16 16 16 / 66%)
-      bgPage: rgb(255 255 255)
-      primary: rgb(252 226 5)
-      secondary: rgb(33 54 99)
-      accent: rgb(196 145 2)
-      info: rgb(119 182 234)
-      success: rgb(54 211 153)
-      warning: rgb(251 189 35)
-      error: rgb(248 114 114)
-      link: rgb(252 226 5)
-      linkActive: var(--aw-color-secondary)
-  dark:
-    fonts:
-      sans: 'Nunito', sans-serif
-      serif: 'Literata', serif
-      heading: 'Poppins', sans-serif
-    colors:
-      default: rgb(229 236 246)
-      heading: rgb(229 236 246)
-      muted: rgb(229 236 246 / 66%)
-      bgPage: rgb(3 6 32)
-      primary: rgb(252 226 5)
-      secondary: rgb(33 54 99)
-      accent: rgb(196 145 2)
-      info: rgb(58 191 248)
-      success: rgb(54 211 153)
-      warning: rgb(251 189 35)
-      error: rgb(248 114 114)
-      link: rgb(252 226 5)
-      linkActive: var(--aw-color-secondary)
+  theme: 'system'
+  tokens: 
+    default:
+      fonts:
+        sans: "'Nunito', sans-serif"
+        serif: "'Literata', serif"
+        heading: "'Poppins', sans-serif"
+      colors:
+        default: rgb(16 16 16)
+        heading: rgb(0 0 0)
+        muted: rgb(16 16 16 / 66%) 
+        bgPage: rgb(255 255 255)
+        primary: rgb(252 226 5)
+        secondary: rgb(33 54 99)
+        accent: rgb(196 145 2)
+        info: rgb(119 182 234)
+        success: rgb(54 211 153) 
+        warning: rgb(251 189 35)
+        error: rgb(248 114 114)
+        link: rgb(252 226 5)
+        linkActive: var(--aw-color-secondary)
+    dark: 
+      fonts:
+        sans: "'Nunito', sans-serif"
+        serif: "'Literata', serif"
+        heading: "'Poppins', sans-serif"
+      colors:
+        default: rgb(229 236 246)
+        heading: rgb(229 236 246)
+        muted: rgb(229 236 246 / 66%)
+        bgPage: rgb(3 6 32)
+        primary: rgb(252 226 5)
+        secondary: rgb(33 54 99)
+        accent: rgb(196 145 2)
+        info: rgb(58 191 248)
+        success: rgb(54 211 153)
+        warning: rgb(251 189 35)
+        error: rgb(248 114 114)
+        link: rgb(252 226 5)
+        linkActive: var(--aw-color-secondary)
