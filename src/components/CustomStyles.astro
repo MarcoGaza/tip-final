@@ -1,29 +1,14 @@
----
-import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
----
+<!-- Updated Font Imports -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Nunito:wght@300;400&family=Dosis:wght@300&family=Outfit:wght@300&family=Roboto:wght@300&family=Literata:wght@400&family=IBM+Plex+Sans:wght@400&family=Karla:wght@400&family=Poppins:wght@300&family=Fira+Sans:wght@400&family=Libre+Franklin:wght@400&family=Inconsolata:wght@300&family=Raleway:wght@300&family=Oswald:wght@400&family=Space+Grotesk:wght@400&family=Urbanist:wght@300&display=swap" rel="stylesheet">
 
 <style is:inline is:global>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+    --aw-font-sans: 'Nunito', sans-serif;
+    --aw-font-serif: 'Literata', serif;
+    --aw-font-heading: 'Poppins', sans-serif;
+
+    --aw-font-weight-heading: 300; /* Thinner weight for headers */
+    --aw-font-weight-body: 400; /* Standard weight for body */
 
     --aw-color-primary: rgb(252 226 5);
     --aw-color-secondary: rgb(33 54 99);
@@ -41,9 +26,12 @@ import '@fontsource-variable/inter';
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+    --aw-font-sans: 'Nunito', sans-serif;
+    --aw-font-serif: 'Literata', serif;
+    --aw-font-heading: 'Poppins', sans-serif;
+
+    --aw-font-weight-heading: 300; /* Thinner weight for dark theme headers */
+    --aw-font-weight-body: 300; /* Standard weight for dark theme body */
 
     --aw-color-primary: rgb(252 226 5);
     --aw-color-secondary: rgb(33 54 99);
@@ -55,6 +43,13 @@ import '@fontsource-variable/inter';
     --aw-color-bg-page: var(--aw-color-bg-page-dark);
 
     ::selection {background-color: black; color: snow}
+  }
 
+  /* Applying font weights */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--aw-font-weight-heading);
+  }
+  body, p, li, a, input, button { /* Standard elements for body text */
+    font-weight: var(--aw-font-weight-body);
   }
 </style>

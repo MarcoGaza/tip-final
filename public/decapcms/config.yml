@@ -1,36 +1,71 @@
 backend:
   name: git-gateway
   branch: main
-
-media_folder: https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/example.jpg?alt=media&token=1d399e6a-2bb7-4819-94c6-2694653d31ed
-public_folder: '/_astro'
-
+media_folder: src/assets/images
+public_folder: /_astro
 collections:
-  - name: 'post'
-    label: 'Post'
-    folder: 'src/content/post'
+  - name: post
+    label: Post
+    folder: src/content/post
     create: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
-      - { label: 'Category', name: 'category', widget: 'string' }
-      - {
-          label: 'Tags',
-          name: 'tags',
-          widget: 'list',
-          allow_add: true,
-          allow_delete: true,
-          collapsed: false,
-          field: { label: 'Tag', name: 'tag', widget: 'string' },
-        }
-      - { label: 'Image', name: 'image', widget: 'string' }
-      - { label: 'Publish Date', name: 'publishDate', widget: 'datetime', required: false }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Content', name: 'body', widget: 'markdown' }
-      - { label: 'Update Date', name: 'updateDate', widget: 'datetime', required: false }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', required: false }
-      - { label: 'Reading Time', name: 'readingTime', widget: 'number', required: false }
-      - { label: 'Start Date', name: 'startDate', widget: 'datetime', required: false }
-      - { label: 'End Date', name: 'endDate', widget: 'datetime', required: false }
-      - { label: 'Location', name: 'location', widget: 'string', required: false }
-      - { label: 'Organizer', name: 'organizer', widget: 'string', required: false }
+      - label: Title
+        name: title
+        widget: string
+      - label: Excerpt
+        name: excerpt
+        widget: string
+      - label: Category
+        name: category
+        widget: string
+      - label: Tags
+        name: tags
+        widget: list
+        allow_add: true
+        allow_delete: true
+        collapsed: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Image
+        name: image
+        widget: string
+      - label: Publish Date
+        name: publishDate
+        widget: datetime
+        required: false
+      - label: Author
+        name: author
+        widget: string
+      - label: Content
+        name: body
+        widget: markdown
+      - label: Update Date
+        name: updateDate
+        widget: datetime
+        required: false
+      - label: Draft
+        name: draft
+        widget: boolean
+        required: false
+      - label: Reading Time
+        name: readingTime
+        widget: number
+        required: false
+      - label: Start Date
+        name: startDate
+        widget: datetime
+        required: false
+      - label: End Date
+        name: endDate
+        widget: datetime
+        required: false
+      - label: Location
+        name: location
+        widget: string
+        required: false
+      - label: Organizer
+        name: organizer
+        widget: string
+        required: false

@@ -14,7 +14,7 @@ export const headerData = {
         { text: 'Courses', href: getPermalink('/courses') },
         { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
         { text: 'News', href: getBlogPermalink() },
-        { text: 'Accolades', href: getPermalink('/accolades') },
+        { text: 'Awards', href: getPermalink('awards', 'category') },
         { text: 'Events', href: getPermalink('event', 'category') },
         { text: 'Organizations', href: getPermalink('category/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
