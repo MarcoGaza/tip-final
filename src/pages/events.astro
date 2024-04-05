@@ -1,0 +1,44 @@
+---
+// Astro component script tag with necessary imports
+import Layout from '~/layouts/PageLayout.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import type { Post } from '~/types';
+import BigCalendar from '~/utils/bigCalendar.jsx';
+
+const metadata = {
+  title: 'Events',
+};
+
+// Initialize your props and other variables here
+const props = Astro.props as Post;
+
+// You can directly await these operations at the top level, without wrapping in an IIFE
+const titlePromise = Astro.slots.render('title');
+const subtitlePromise = Astro.slots.render('subtitle');
+const taglinePromise = Astro.slots.render('tagline');
+const bgPromise = Astro.slots.render('bg');
+
+// Use Promise.all to wait for all promises if necessary
+const [title, subtitle, tagline, bg] = await Promise.all([titlePromise, subtitlePromise, taglinePromise, bgPromise]);
+
+// Set defaults after awaiting the promises
+const finalTitle = title || props.title;
+const finalSubtitle = subtitle || props.subtitle;
+const finalTagline = tagline || props.tagline;
+const finalBg = bg || props.bg;
+
+// Other props that don't require async operations can be set directly
+const items = props.items || [];
+const id = props.id;
+const isDark = props.isDark || false;
+const classes = props.classes || {};
+---
+
+<Layout metadata={metadata}>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={finalBg}>
+    <Headline title={finalTitle} subtitle={finalSubtitle} tagline={finalTagline} classes={classes?.headline} />
+
+    <BigCalendar />
+  </WidgetWrapper>
+</Layout>

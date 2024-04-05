@@ -27,7 +27,7 @@ const Announcements = await findActiveAnnouncements();
   }
 </style>
 
-<div class="marquee h-10 bg-black flex items-center">
+<div class="z-20 marquee h-10 bg-black flex items-center">
   <span class="marquee-content text-primary">
     {Announcements.map((announcement, index) => (
       <Fragment key={index}>

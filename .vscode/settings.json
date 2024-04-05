@@ -16,5 +16,20 @@
   },
   "yaml.schemas": {
     "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
+  },
+  "spellright.language": [
+    "en"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "javascript",
+    "astro"
+  ],
+  "spellright.parserByClass": {
+    "astro": {
+      "parser": "markdown"
+    }
   }
 }

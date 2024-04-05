@@ -234,6 +234,9 @@ function isAnnouncement(post: Post): boolean {
   console.log(`Post "${post.title}" is announcement: ${isAnnouncement}`);
   return isAnnouncement;
 }
+
+
+
 export const findActiveAnnouncements = async (): Promise<Post[]> => {
   console.log('Fetching posts for announcements...');
   const collectionEntries = await getCollection('post');
@@ -246,6 +249,21 @@ export const findActiveAnnouncements = async (): Promise<Post[]> => {
 
   console.log(`Total announcements found: ${allAnnouncements.length}`);
   return allAnnouncements;
+};
+
+
+export const findActiveEvents = async (): Promise<Post[]> => {
+  console.log('Fetching posts for events...');
+  const collectionEntries = await getCollection('post');
+  const normalizedPosts = await Promise.all(collectionEntries.map(async (entry) => await getNormalizedPost(entry)));
+
+  console.log(`Total posts normalized: ${normalizedPosts.length}`);
+
+  // Filter posts to include those categorized as "event"
+  const allEvents = normalizedPosts.filter(post => post.category?.toLowerCase() === 'event');
+
+  console.log(`Total events found: ${allEvents.length}`);
+  return allEvents;
 };
 
 
