@@ -286,3 +286,5 @@ Initially created by [onWidget](https://onwidget.com) and maintained by a commun
 ## License
 
 **AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+#   t i p - m n l - i n d u s t r i a l - e n g i n e e r i n g  
+ 
