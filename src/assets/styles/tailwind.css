@@ -57,12 +57,37 @@
   left: 0;
   right: 0;
   bottom: 70px !important;
-  padding: 0 5px;
+  padding: 0;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+  @media (min-width: 768px) { /* Targeting larger screens */
+    .dropdown-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 250px; /* 3 columns + image column */
+      gap: 20px; /* Adjust spacing as needed */
+      padding: 20px; /* Padding around the entire dropdown */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds some shadow for depth */
+      @apply rounded-lg bg-white; /* Tailwind utilities for rounded corners and background */
+    }
+
+    .dropdown-menu .dropdown-link {
+      @apply text-base no-underline text-gray-700; /* Styling dropdown links */
+    }
+
+    .dropdown-menu .dropdown-link:hover {
+      @apply text-primary; /* Highlight on hover */
+    }
+
+    .dropdown-menu img {
+      width: 100%; /* Ensure the image covers the column */
+      height: auto; /* Maintain aspect ratio */
+      grid-column: 4 / -1; /* Position the image in the fourth column */
+    }
+  }
 
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
