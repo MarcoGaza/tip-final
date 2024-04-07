@@ -1,40 +1,56 @@
 ---
-// Import the necessary function and data types
-import { findActiveAnnouncements } from "~/utils/blog";
-import type { Post } from '~/types';
+// Astro component script
+import { findActiveAnnouncements } from '~/utils/blog';
 
 const Announcements = await findActiveAnnouncements();
+
+export interface Props {
+  id?: string;
+  isSticky?: boolean;
+  position?: string;
+}
+
+const { id = 'announcement', isSticky = true } = Astro.props;
 ---
 
 <style>
   .marquee {
     width: 100%;
     overflow: hidden;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background-color: black;
   }
-  
+
   .marquee-content {
     display: block;
     width: max-content;
     position: absolute;
     white-space: nowrap;
     animation: marquee 80s linear infinite;
+    padding-left: 80px; /* Adjust this padding to ensure the marquee text starts after the logo */
   }
-  
+
   @keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 </style>
 
-<div class="z-20 marquee h-10 bg-black flex items-center">
+<div class={isSticky ? 'z-30 marquee h-10 bg-black flex items-center relative' : ''} id={id}>
   <span class="marquee-content text-primary">
-    {Announcements.map((announcement, index) => (
-      <Fragment key={index}>
-        {announcement.excerpt}
-        {index < Announcements.length - 1 && <span class="mx-[400px]"></span>}
-      </Fragment>
-    ))}
+    {
+      Announcements.map((announcement, index) => (
+        <Fragment key={index}>
+          {announcement.excerpt}
+          {index < Announcements.length - 1 && <span class="mx-[400px]" />}
+        </Fragment>
+      ))
+    }
   </span>
 </div>
-

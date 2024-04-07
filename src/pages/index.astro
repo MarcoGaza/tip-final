@@ -12,13 +12,10 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-
-  const metadata = {
+const metadata = {
   title: 'Technological Institute of the Philippines Industrial Engineering Department | Excellence & Innovation',
   ignoreTitleTemplate: true,
 };
-
-
 ---
 
 <Layout metadata={metadata}>
@@ -29,88 +26,85 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
       {
         variant: 'primary',
         text: 'Learn more',
-        href: '/about',
+        href: '/about-tip',
         target: '_blank',
         icon: 'tabler:download',
       },
     ]}
     image={{ src: '~/assets/images/hero-image.webp', alt: 'AstroWind Hero Image' }}
   >
-  <Fragment slot="title">
-    Technological Institute of the Philippines
-    <br />
-    <span class="text-accent dark:text-white highlight">Industrial Engineering Department</span>
-  </Fragment>
-  
+    <Fragment slot="title">
+      Technological Institute of the Philippines
+      <br />
+      <span class="text-accent dark:text-white highlight">Industrial Engineering Department</span>
+    </Fragment>
 
-  <Fragment slot="subtitle">
-    <span class="hidden sm:inline">
-      <span class="font-semibold">TIP IE Department</span> is dedicated to excellence in teaching, innovation, and research in Industrial Engineering.
-    </span>
-    <span class="block mb-1 sm:hidden font-bold text-yellow-600">TIP IE Dept: Excellence & Innovation.</span>
-    Offering a comprehensive curriculum that prepares students for leadership in the engineering field. Engaging with industry partners, providing students with real-world experience and job opportunities.
-  </Fragment>
-  
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">TIP IE Department</span> is dedicated to excellence in teaching, innovation, and research
+        in Industrial Engineering.
+      </span>
+      <span class="block mb-1 sm:hidden font-bold text-yellow-600">TIP IE Dept: Excellence & Innovation.</span>
+      Offering a comprehensive curriculum that prepares students for leadership in the engineering field. Engaging with industry
+      partners, providing students with real-world experience and job opportunities.
+    </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-
   <!-- Features Widget *************** -->
 
   <Features
-  id="features"
-  tagline="Program Highlights"
-  title="Why Industrial Engineering at TIP?"
-  subtitle="Discover the unique advantages of pursuing your IE degree with us. A leading choice for future engineers."
-  items={[
-    {
-      title: 'Comprehensive Curriculum',
-      description:
-        'Our curriculum combines technical skills with practical application, preparing students for diverse challenges in the industry.',
-      icon: 'tabler:brand-tailwind',
-    },
-    {
-      title: 'Hands-on Learning',
-      description:
-        'Through labs, workshops, and real-world projects, students gain practical experience that complements their academic knowledge.',
-      icon: 'tabler:components',
-    },
-    {
-      title: 'Industry Connections',
-      description:
-        'Strong ties with industry leaders offer internship opportunities, ensuring students are ready to step into their careers upon graduation.',
-      icon: 'tabler:list-check',
-    },
-    {
-      title: 'State-of-the-Art Facilities',
-      description:
-        'Our campus is equipped with the latest technology in engineering education, from advanced labs to collaborative workspaces.',
-      icon: 'tabler:rocket',
-    },
-    {
-      title: 'Career Readiness',
-      description:
-        'Focused on market needs, our program ensures graduates possess the skills and knowledge demanded by top employers.',
-      icon: 'tabler:arrows-right-left',
-    },
-    {
-      title: 'Innovative Research Opportunities',
-      description:
-        'Engage in cutting-edge research with our faculty on projects that push the boundaries of engineering solutions.',
-      icon: 'tabler:bulb',
-    },
-  ]}
-/>
+    id="features"
+    tagline="Program Highlights"
+    title="Why Industrial Engineering at TIP?"
+    subtitle="Discover the unique advantages of pursuing your IE degree with us. A leading choice for future engineers."
+    items={[
+      {
+        title: 'Comprehensive Curriculum',
+        description:
+          'Our curriculum combines technical skills with practical application, preparing students for diverse challenges in the industry.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Hands-on Learning',
+        description:
+          'Through labs, workshops, and real-world projects, students gain practical experience that complements their academic knowledge.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Industry Connections',
+        description:
+          'Strong ties with industry leaders offer internship opportunities, ensuring students are ready to step into their careers upon graduation.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'State-of-the-Art Facilities',
+        description:
+          'Our campus is equipped with the latest technology in engineering education, from advanced labs to collaborative workspaces.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Career Readiness',
+        description:
+          'Focused on market needs, our program ensures graduates possess the skills and knowledge demanded by top employers.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Innovative Research Opportunities',
+        description:
+          'Engage in cutting-edge research with our faculty on projects that push the boundaries of engineering solutions.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
 
+  <Note />
 
-<Note />
-
-
-<BlogLatestPosts
-  title="Discover More on Our Blog"
-  information="Our blog features the latest advancements, student projects, and research in Industrial Engineering. Dive into articles that showcase the innovative work of our faculty and students at TIP."
-/>
+  <BlogLatestPosts
+    title="Discover More on Our Blog"
+    information="Our blog features the latest advancements, student projects, and research in Industrial Engineering. Dive into articles that showcase the innovative work of our faculty and students at TIP."
+  />
 
   <!-- Content Widget: Industrial Engineering Focus **************** -->
 
@@ -142,7 +136,8 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">A Foundation for Success</h3>
-      Our program is committed to developing not just skilled engineers, but also innovative thinkers and leaders prepared for the challenges of tomorrow.
+      Our program is committed to developing not just skilled engineers, but also innovative thinkers and leaders prepared
+      for the challenges of tomorrow.
     </Fragment>
 
     <Fragment slot="bg">
@@ -167,7 +162,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
       {
         title: 'Community Engagement',
         description:
-          "We believe in the power of engineering to transform communities. Our students participate in various outreach programs, applying their skills to solve real-world problems and make a positive impact.",
+          'We believe in the power of engineering to transform communities. Our students participate in various outreach programs, applying their skills to solve real-world problems and make a positive impact.',
       },
     ]}
     image={{
@@ -259,190 +254,184 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
     </Fragment>
   </Content>
 
+  <!-- Steps Widget: How to Join the IE Department at TIP **************** -->
 
-<!-- Steps Widget: How to Join the IE Department at TIP **************** -->
+  <Steps
+    title="Start Your Journey in Industrial Engineering at TIP"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Inquire</span>',
+        description:
+          'Visit our admissions page or contact us directly to learn more about the Industrial Engineering program. Our team is ready to assist you with any questions you might have.',
+        icon: 'tabler:info-circle',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Apply</span>',
+        description:
+          'Complete your application through our online portal. Submit all required documents, including academic records and recommendation letters, to secure your place in the next academic cycle.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Prepare</span>',
+        description:
+          'Once accepted, take the necessary steps to prepare for your academic journey. This includes attending orientation, registering for classes, and getting involved in student organizations.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Welcome!',
+        description:
+          "You're now part of the TIP Industrial Engineering family! Embark on this exciting journey towards becoming a leader in innovation and efficiency.",
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
+      alt: 'Engineering Students at TIP',
+    }}
+  />
 
-<Steps
-  title="Start Your Journey in Industrial Engineering at TIP"
-  items={[
-    {
-      title: 'Step 1: <span class="font-medium">Inquire</span>',
-      description:
-        "Visit our admissions page or contact us directly to learn more about the Industrial Engineering program. Our team is ready to assist you with any questions you might have.",
-      icon: 'tabler:info-circle',
-    },
-    {
-      title: 'Step 2: <span class="font-medium">Apply</span>',
-      description:
-        "Complete your application through our online portal. Submit all required documents, including academic records and recommendation letters, to secure your place in the next academic cycle.",
-      icon: 'tabler:edit',
-    },
-    {
-      title: 'Step 3: <span class="font-medium">Prepare</span>',
-      description:
-        "Once accepted, take the necessary steps to prepare for your academic journey. This includes attending orientation, registering for classes, and getting involved in student organizations.",
-      icon: 'tabler:clipboard-list',
-    },
-    {
-      title: 'Welcome!',
-      description:
-        "You're now part of the TIP Industrial Engineering family! Embark on this exciting journey towards becoming a leader in innovation and efficiency.",
-      icon: 'tabler:check',
-    },
-  ]}
-  image={{
-    src: 'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/HD-wallpaper-hexagons-abstract-colored-colorful.jpg?alt=media&token=25664883-cfd9-4641-bf15-6e19fb212dd5',
-    alt: 'Engineering Students at TIP',
-  }}
-/>
+  <!-- Features2 Widget: IE Department Highlights **************** -->
 
-<!-- Features2 Widget: IE Department Highlights **************** -->
+  <Features2
+    title="Key Features of the IE Program at TIP"
+    subtitle="What sets our Industrial Engineering program apart"
+    tagline="Highlights"
+    items={[
+      {
+        title: 'Comprehensive Curriculum',
+        description:
+          'Our curriculum is designed to cover all facets of Industrial Engineering, ensuring a well-rounded education.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'State-of-the-Art Labs',
+        description:
+          'Equipped with the latest technology, our labs offer students hands-on experience that prepares them for the real world.',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Industry Partnerships',
+        description:
+          'Collaborations with leading companies provide students with internship opportunities and exposure to industrial practices.',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'Dynamic Faculty',
+        description:
+          'Our faculty includes renowned scholars and experienced professionals, offering insights into both theory and practice.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Career Readiness',
+        description:
+          "Our program's focus on practical skills ensures graduates are ready to meet the demands of the industry.",
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: 'Scholarship Opportunities',
+        description: 'We offer a variety of scholarships to support students financially throughout their studies.',
+        icon: 'flat-color-icons:currency-exchange',
+      },
+      {
+        title: 'Alumni Network',
+        description:
+          'Our extensive alumni network opens doors to mentorship opportunities and professional connections.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'Student Support Services',
+        description:
+          'From academic counseling to career services, our dedicated staff is here to support students every step of the way.',
+        icon: 'flat-color-icons:business-contact',
+      },
+      {
+        title: 'Innovative Research',
+        description:
+          "We're at the forefront of research in Industrial Engineering, pushing boundaries and innovating solutions.",
+        icon: 'flat-color-icons:database',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 
-<Features2
-  title="Key Features of the IE Program at TIP"
-  subtitle="What sets our Industrial Engineering program apart"
-  tagline="Highlights"
-  items={[
-    {
-      title: 'Comprehensive Curriculum',
-      description: "Our curriculum is designed to cover all facets of Industrial Engineering, ensuring a well-rounded education.",
-      icon: 'flat-color-icons:template',
-    },
-    {
-      title: 'State-of-the-Art Labs',
-      description:
-        "Equipped with the latest technology, our labs offer students hands-on experience that prepares them for the real world.",
-      icon: 'flat-color-icons:gallery',
-    },
-    {
-      title: 'Industry Partnerships',
-      description:
-        'Collaborations with leading companies provide students with internship opportunities and exposure to industrial practices.',
-      icon: 'flat-color-icons:approval',
-    },
-    {
-      title: 'Dynamic Faculty',
-      description:
-        "Our faculty includes renowned scholars and experienced professionals, offering insights into both theory and practice.",
-      icon: 'flat-color-icons:document',
-    },
-    {
-      title: 'Career Readiness',
-      description:
-        "Our program's focus on practical skills ensures graduates are ready to meet the demands of the industry.",
-      icon: 'flat-color-icons:advertising',
-    },
-    {
-      title: 'Scholarship Opportunities',
-      description: 'We offer a variety of scholarships to support students financially throughout their studies.',
-      icon: 'flat-color-icons:currency-exchange',
-    },
-    {
-      title: 'Alumni Network',
-      description: 'Our extensive alumni network opens doors to mentorship opportunities and professional connections.',
-      icon: 'flat-color-icons:voice-presentation',
-    },
-    {
-      title: 'Student Support Services',
-      description:
-        'From academic counseling to career services, our dedicated staff is here to support students every step of the way.',
-      icon: 'flat-color-icons:business-contact',
-    },
-    {
-      title: 'Innovative Research',
-      description: "We're at the forefront of research in Industrial Engineering, pushing boundaries and innovating solutions.",
-      icon: 'flat-color-icons:database',
-    },
-  ]}
->
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Features2>
+  <!-- FAQs Widget ******************* -->
 
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about our Industrial Engineering program."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Why choose Industrial Engineering at TIP?',
+        description:
+          'Our program is known for its comprehensive curriculum, state-of-the-art facilities, and strong industry connections, preparing students for successful careers.',
+      },
+      {
+        title: 'How can I apply?',
+        description:
+          'Applying to our program is easy! Visit our admissions page for detailed instructions and requirements.',
+      },
+      {
+        title: 'What are the career prospects?',
+        description:
+          'Graduates can pursue various roles in manufacturing, systems engineering, operations research, and more, with many alumni holding leadership positions across industries.',
+      },
+      {
+        title: 'Do you offer internships?',
+        description:
+          'Yes, we have partnerships with leading companies and organizations to offer our students valuable internship opportunities.',
+      },
+      {
+        title: 'Can I get involved in research?',
+        description:
+          'Absolutely! We encourage our students to engage in research projects with our faculty, often resulting in published papers and conference presentations.',
+      },
+      {
+        title: 'Are there opportunities for international exposure?',
+        description:
+          'Definitely. We offer various international exchange programs and collaborations that allow students to gain global perspectives and experiences, enhancing their education and career prospects.',
+      },
+    ]}
+  />
 
+  <!-- Stats Widget ****************** -->
 
+  <Stats
+    stats={[
+      { title: 'Enrolled Students', amount: '800+' },
+      { title: 'Faculty Members', amount: '50+' },
+      { title: 'Research Projects', amount: '120+' },
+      { title: 'Industry Partners', amount: '30+' },
+    ]}
+  />
 
+  <!-- CallToAction Widget *********** -->
 
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Apply Now',
+        href: '/admissions',
+        target: '_self',
+      },
+      {
+        variant: 'secondary',
+        text: 'Contact Us',
+        href: '/contact',
+        target: '_self',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Join the Future of Industrial Engineering </Fragment>
 
-<!-- FAQs Widget ******************* -->
-
-<FAQs
-  title="Frequently Asked Questions"
-  subtitle="Get answers to common questions about our Industrial Engineering program."
-  tagline="FAQs"
-  classes={{ container: 'max-w-6xl' }}
-  items={[
-    {
-      title: 'Why choose Industrial Engineering at TIP?',
-      description:
-        "Our program is known for its comprehensive curriculum, state-of-the-art facilities, and strong industry connections, preparing students for successful careers.",
-    },
-    {
-      title: 'How can I apply?',
-      description:
-        "Applying to our program is easy! Visit our admissions page for detailed instructions and requirements.",
-    },
-    {
-      title: 'What are the career prospects?',
-      description:
-        "Graduates can pursue various roles in manufacturing, systems engineering, operations research, and more, with many alumni holding leadership positions across industries.",
-    },
-    {
-      title: 'Do you offer internships?',
-      description:
-        "Yes, we have partnerships with leading companies and organizations to offer our students valuable internship opportunities.",
-    },
-    {
-      title: 'Can I get involved in research?',
-      description:
-        "Absolutely! We encourage our students to engage in research projects with our faculty, often resulting in published papers and conference presentations.",
-    },
-    {
-      title: 'Are there opportunities for international exposure?',
-      description:
-        "Definitely. We offer various international exchange programs and collaborations that allow students to gain global perspectives and experiences, enhancing their education and career prospects.",
-    },
-  ]}
-/>
-
-
-<!-- Stats Widget ****************** -->
-
-<Stats
-  stats={[
-    { title: 'Enrolled Students', amount: '800+' },
-    { title: 'Faculty Members', amount: '50+' },
-    { title: 'Research Projects', amount: '120+' },
-    { title: 'Industry Partners', amount: '30+' },
-  ]}
-/>
-
-<!-- CallToAction Widget *********** -->
-
-<CallToAction
-  actions={[
-    {
-      variant: 'primary',
-      text: 'Apply Now',
-      href: '/admissions',
-      target: '_self',
-    },
-    {
-      variant: 'secondary',
-      text: 'Contact Us',
-      href: '/contact',
-      target: '_self',
-    },
-  ]}
->
-  <Fragment slot="title">
-    Join the Future of Industrial Engineering
-  </Fragment>
-
-  <Fragment slot="subtitle">
-    Take the first step towards an exciting career by applying to the Industrial Engineering program at TIP. Discover how you can make a difference in the world with us.
-  </Fragment>
-</CallToAction>
-
+    <Fragment slot="subtitle">
+      Take the first step towards an exciting career by applying to the Industrial Engineering program at TIP. Discover
+      how you can make a difference in the world with us.
+    </Fragment>
+  </CallToAction>
 </Layout>

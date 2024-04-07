@@ -5,6 +5,7 @@ export const headerData = {
     {
       text: 'Menu',
       links: [
+        { text: 'Home', href: getPermalink('/') },
         { text: 'About', href: getPermalink('/about-tip') },
         { text: 'Accreditations', href: getPermalink('/accreditations') },
         { text: 'Admissions', href: getPermalink('/admissions') },
@@ -18,13 +19,11 @@ export const headerData = {
         { text: 'Events', href: getPermalink('/events') },
         { text: 'Organizations', href: getPermalink('category/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
-      ]
+      ],
     },
-    { text: 'Home', href: getPermalink('/') },
   ],
   actions: [{ text: 'Apply Now', href: getPermalink('/admissions'), target: '_blank' }],
 };
-
 
 export const footerData = {
   links: [

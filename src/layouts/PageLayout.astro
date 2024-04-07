@@ -3,28 +3,42 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
-
+import Logo from '~/components/Logo.astro';
+import { getHomePermalink } from '~/utils/permalinks';
 import { headerData, footerData } from '~/navigation';
 
 import type { MetaData } from '~/types';
 
-export interface Props {
-  metadata?: MetaData;
-}
-
 const { metadata } = Astro.props;
 ---
 
-<Layout metadata={metadata}>
-  <slot name="announcement">
-    <Announcement />
-  </slot>
-  <slot name="header">
-    <Header {...headerData} isSticky showRssFeed showToggleTheme />
-  </slot>
-  <main>
+<Layout metadata={metadata} class="relative">
+  <!-- Logo with the highest z-index to ensure visibility -->
+  <div class="fixed top-0 left-6 z-50 p-2">
+    <a href={getHomePermalink()} class="block">
+      <Logo class="h-20" />
+      <!-- Assuming this size ensures it covers both the announcement and header -->
+    </a>
+  </div>
+
+  <!-- Announcement with lower z-index than the logo but higher than content -->
+  <div class="sticky top-0 z-40">
+    <slot name="announcement">
+      <Announcement isSticky />
+    </slot>
+  </div>
+
+  <!-- Header with z-index adjusted to ensure it's above the content but below the announcement -->
+  <div class="sticky top-[calc(2.5rem+1px)] z-30 bg-transparent">
+    <slot name="header">
+      <Header {...headerData} isSticky showRssFeed showToggleTheme />
+    </slot>
+  </div>
+
+  <main class="pt-[calc(5rem+2px)]">
     <slot />
   </main>
+
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
