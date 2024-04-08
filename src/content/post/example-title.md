@@ -7,7 +7,7 @@ tags:
   - Assembly
   - "SecondSemester  "
   - Industrial Engineering
-image: '"https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/default.png?alt=media&token=b250be6b-25b2-44c0-81df-71a352cd6114"'
+image: https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/default.png?alt=media&token=b250be6b-25b2-44c0-81df-71a352cd6114
 publishDate: ""
 author: Department Student Council
 updateDate: 2024-04-05T20:51:42.368Z
