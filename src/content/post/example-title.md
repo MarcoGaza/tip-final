@@ -7,7 +7,7 @@ tags:
   - Assembly
   - "SecondSemester  "
   - Industrial Engineering
-image: src/assets/images/2nd-sem-general-assembly.jpg
+image: https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/2nd%20Sem%20General%20Assembly.jpg?alt=media&token=421c6797-d54b-4ec0-b590-390b314944d6
 publishDate: ""
 author: Department Student Council
 updateDate: 2024-04-05T20:51:42.368Z
