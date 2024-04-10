@@ -25,6 +25,38 @@ export interface Post {
 }
 
 
+export interface FacultyMember {
+  name?: string;
+  position?: string;
+  department?: string;
+  image?: Image;
+  socials?: Array<Social>;
+  biography?: string;
+  classes?: Record<string, string>;
+}
+
+
+export interface MarqueeAnnouncement {
+  id?: string;
+  title: string;
+  message: string;
+  startDate?: string;
+  endDate?: string;
+  link?: string;
+}
+
+
+export interface Event {
+  id?: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  organizer?: string;
+  image?: string;
+  link?: string;
+}
 
 export interface MetaData {
   title?: string;

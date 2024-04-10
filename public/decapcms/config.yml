@@ -34,3 +34,61 @@ collections:
       - { label: 'End Date', name: 'endDate', widget: 'datetime', required: false }
       - { label: 'Location', name: 'location', widget: 'string', required: false }
       - { label: 'Organizer', name: 'organizer', widget: 'string', required: false }
+
+  - name: 'faculty'
+    label: 'Faculty'
+    folder: 'src/content/faculty'
+    create: true
+    extension: 'json'
+    format: 'json'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string', required: false }
+      - { label: 'Position', name: 'position', widget: 'string', required: false }
+      - { label: 'Department', name: 'department', widget: 'string', required: false }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Biography', name: 'biography', widget: 'text', required: false }
+      - label: 'Socials'
+        name: 'socials'
+        widget: 'list'
+        required: false
+        fields:
+          - { label: 'Platform', name: 'platform', widget: 'string' }
+          - { label: 'URL', name: 'url', widget: 'string' }
+      - label: 'Classes'
+        name: 'classes'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Class Name', name: 'className', widget: 'string' }
+          - { label: 'Class ID', name: 'classID', widget: 'string' }
+
+  - name: 'marquee'
+    label: 'Marquee Announcements'
+    folder: 'src/content/marquee'
+    create: true
+    extension: 'json'
+    format: 'json'
+    fields:
+      - { label: 'ID', name: 'id', widget: 'string', required: false }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Message', name: 'message', widget: 'text' }
+      - { label: 'Start Date', name: 'startDate', widget: 'datetime', required: false }
+      - { label: 'End Date', name: 'endDate', widget: 'datetime', required: false }
+      - { label: 'Link', name: 'link', widget: 'string', required: false }
+
+  - name: 'events'
+    label: 'Events'
+    folder: 'src/content/events'
+    create: true
+    extension: 'json'
+    format: 'json'
+    fields:
+      - { label: 'ID', name: 'id', widget: 'string', required: false }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Start Date', name: 'startDate', widget: 'datetime' }
+      - { label: 'End Date', name: 'endDate', widget: 'datetime' }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - { label: 'Organizer', name: 'organizer', widget: 'string', required: false }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Link', name: 'link', widget: 'string', required: false }
