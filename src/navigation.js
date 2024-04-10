@@ -22,7 +22,7 @@ export const headerData = {
       ],
     },
   ],
-  actions: [{ text: 'Apply Now', href: getPermalink('/admissions'), target: '_blank' }],
+  actions: [{ text: 'Enroll Now', href: getPermalink('/admissions'), target: '_blank' }],
 };
 
 export const footerData = {
@@ -58,13 +58,11 @@ export const footerData = {
     {
       title: 'Legal',
       links: [
-        { text: 'Terms', href: getPermalink('/terms') },
         { text: 'Privacy Policy', href: getPermalink('/privacy') },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
@@ -73,6 +71,6 @@ export const footerData = {
     { ariaLabel: 'Inhinyera', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/InhinyeraTIPMnl' },,
   ],
   footNote: `
-    Made by <a class="text-yellow-600 underline dark:text-muted" href="https://tip.edu.ph/"> Technological Institute of the Philippines</a> · All rights reserved.
+    Made by <a class="text-yellow-600 underline dark:text-muted" href="https://tip.edu.ph/"> Technological Institute of the Philippines Manila-Industrial Engineering Department</a> · All rights reserved.
   `,
 };
