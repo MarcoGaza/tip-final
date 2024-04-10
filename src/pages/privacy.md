@@ -3,7 +3,7 @@ title: 'Privacy Policy'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: January 06, 2023
+_Last updated_: Revision Status / Date: 3 /2024 Feb 12
 
 This Privacy Notice describes how the Technological Institute of the Philippines (T.I.P.) collects and uses personally identifiable information  (“Personal Information”) of Data Subjects. Personal Information may be collected manually via forms or documents or collected electronically via  http://www.tip.edu.ph and the associated Uniform Resource Locators (URLs) owned or controlled by T.I.P., as well as via mobile applications made  available to Data Subjects. For purpose of this Privacy Notice, the following terms shall have their respective meanings as set forth below: 
 
