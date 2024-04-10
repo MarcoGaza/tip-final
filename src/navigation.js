@@ -15,7 +15,7 @@ export const headerData = {
         { text: 'Courses', href: getPermalink('/courses') },
         { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
         { text: 'News', href: getBlogPermalink() },
-        { text: 'Awards', href: getPermalink('category/awards') },
+        { text: 'Awards', href: getPermalink('awards', 'category') },
         { text: 'Events', href: getPermalink('/events') },
         { text: 'Organizations', href: getPermalink('category/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
@@ -50,7 +50,7 @@ export const footerData = {
       links: [
         { text: 'News', href: getBlogPermalink() },
         { text: 'Awards', href: getPermalink('/awards') },
-        { text: 'Events', href: getPermalink('event', 'category') },
+        { text: 'Events', href: getPermalink('category/awards') },
         { text: 'Organizations', href: getPermalink('category/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
