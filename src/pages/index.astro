@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import LeadershipMessage from '~/components/widgets/LeadershipMessage.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
@@ -11,12 +12,15 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Types from '~/types'
 
 const metadata = {
   title: 'Technological Institute of the Philippines Industrial Engineering Department | Excellence & Innovation',
   ignoreTitleTemplate: true,
 };
 ---
+
+
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
@@ -51,8 +55,15 @@ const metadata = {
   </Hero>
 
   <!-- Note Widget ******************* -->
-
+  <Note />
   <!-- Features Widget *************** -->
+
+
+
+  <BlogLatestPosts
+  title="Discover More on Our Blog"
+  information="Our blog features the latest advancements, student awards, and Events in Industrial Engineering. Dive into articles that showcase the innovative work of our Industrial Engineering community at TIP-Manila."
+ />
 
   <Features
     id="features"
@@ -101,10 +112,30 @@ const metadata = {
 
   <Note />
 
-  <BlogLatestPosts
-    title="Discover More on Our Blog"
-    information="Our blog features the latest advancements, student awards, and Events in Industrial Engineering. Dive into articles that showcase the innovative work of our Industrial Engineering community at TIP-Manila."
-  />
+  <LeadershipMessage
+  id="department-head-corner"
+  title="Message from the Head of Industrial Engineering"
+  leader={{
+    name: "Dr. Elena Richards",
+    profilePicture: {
+      src: "https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/Taylor-Swift-2019-Jingle-Ball.webp?alt=media&token=629390dd-0ca9-4665-ac33-8a2ada5a28b3",
+      alt: "Dr. Elena Richards, Department Head of Industrial Engineering at TIP"
+    },
+    bio: "With over two decades of experience in industrial engineering and a passion for applied research, Dr. Elena Richards has been at the forefront of the department's mission to blend technical knowledge with practical applications. Her leadership emphasizes innovation, sustainability, and the development of global engineering competencies.",
+    vision: "To foster a culture of continuous improvement, where students not only master the core principles of industrial engineering but also develop a mindset geared towards solving the complex problems of tomorrow."
+  }}
+  welcomeMessage="Welcome to the Industrial Engineering Department, where our commitment to excellence drives us to constantly push the boundaries of what's possible. Our program is designed to equip you with the skills needed to excel in a rapidly changing industrial landscape."
+  blockQuote={{
+    quote: "The essence of industrial engineering lies in optimization and efficiency. Our goal is to instill in our students the ability to see the larger picture, optimizing systems and processes for the betterment of society.",
+    author: "Dr. Elena Richards",
+    position: "Department Head"
+  }}
+  callToAction={{
+    text: "Discover Our Industrial Engineering Program",
+    url: "/industrial-engineering"
+  }}
+/>
+
 
   <!-- Content Widget: Industrial Engineering Focus **************** -->
 
@@ -177,6 +208,9 @@ const metadata = {
     </Fragment>
   </Content>
 
+
+ 
+
   <!-- Content Widget **************** -->
 
   <!-- Content Widget: Technological Innovation and Engagement **************** -->
@@ -217,6 +251,32 @@ const metadata = {
   </Content>
 
   <!-- Content Widget: Your Path to Becoming an Industrial Engineer **************** -->
+
+
+  <LeadershipMessage
+  id="president-message"
+  title="A Message from Our President"
+  leader={{
+    name: "Dr. John Smith",
+    profilePicture: {
+      src: "https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/Taylor-Swift-2019-Jingle-Ball.webp?alt=media&token=629390dd-0ca9-4665-ac33-8a2ada5a28b3",
+      alt: "Dr. John Smith, President of TIP"
+    },
+    bio: "Dr. John Smith has led TIP with a vision for excellence in education, preparing students to meet the challenges of the future with confidence and skill.",
+    vision: "Building a community of learners, thinkers, and doers, poised for leadership in their fields."
+  }}
+  welcomeMessage="Join us at TIP as we embark on a journey of discovery, learning, and achievement."
+  blockQuote={{
+    quote: "The future belongs to those who prepare for it today.",
+    author: "Dr. John Smith",
+    position: "President"
+  }}
+  callToAction={{
+    text: "Explore TIP's Programs",
+    url: "/programs"
+  }}
+/>
+
 
   <Content
     isReversed

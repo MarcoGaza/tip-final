@@ -1,0 +1,41 @@
+---
+// Import Astro's Fragment component for rendering multiple root nodes
+import { Fragment } from 'astro';
+
+// Dynamically import all event JSON files from the specified directory
+const eventFiles = import.meta.glob('/src/content/events/*.json', { eager: true });
+
+// Convert the imported modules into an array of events
+let events = Object.values(eventFiles).map(file => file.default);
+
+// Get the current date to filter upcoming events
+const currentDate = new Date();
+
+// Filter to only include events that are upcoming
+events = events.filter(event => {
+  const eventStartDate = new Date(event.startDate);
+  return eventStartDate >= currentDate;
+});
+
+// Sort events by start date to ensure chronological order
+events.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+---
+
+<div class="space-y-4">
+  {events.map((event, index) => (
+    <Fragment key={index}>
+      <div class="max-w-md bg-white rounded-xl shadow-md overflow-hidden m-3">
+        <div class="p-4 flex items-center">
+          <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center">
+            <p class="text-4xl font-bold text-white">{new Date(event.startDate).getDate()}</p>
+            <p class="text-sm text-white">{new Date(event.startDate).toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
+          </div>
+          <div class="ml-4">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{event.title}</div>
+            <p class="mt-2 text-gray-500">{event.description}</p>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  ))}
+</div>

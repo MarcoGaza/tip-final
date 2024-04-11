@@ -293,4 +293,26 @@ export interface Content extends Headline, Widget {
   callToAction?: CallToAction;
 }
 
+interface BlockQuote {
+  quote: string;
+  author: string;
+  position?: string; // Optional position or title of the author
+}
+
+interface LeadershipMessageProps {
+  id: string;
+  title: string;
+  leader: {
+    name: string;
+    profilePicture: string | Image;
+    bio: string;
+    vision?: string; // Optional, as not every leadership message may include a vision statement
+  };
+  welcomeMessage: string;
+  blockQuote?: BlockQuote;
+  callToAction?: CallToAction;
+}
+
+
+
 export interface Contact extends Headline, Form, Widget {}

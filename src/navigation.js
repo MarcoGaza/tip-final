@@ -13,7 +13,7 @@ export const headerData = {
         { text: 'Industrial Engineering Department', href: getPermalink('/industrial-engineering') },
         { text: 'Curriculum', href: getPermalink('/curriculum') },
         { text: 'Courses', href: getPermalink('/courses') },
-        { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
+        { text: 'Faculty Members', href: getPermalink('/facultypage') },
         { text: 'News', href: getBlogPermalink() },
         { text: 'Awards', href: getPermalink('award', 'category') },
         { text: 'Events', href: getPermalink('/events') },
@@ -43,7 +43,7 @@ export const footerData = {
         { text: 'Department Overview', href: getPermalink('/industrial-engineering') },
         { text: 'Curriculum', href: getPermalink('/curriculum') },
         { text: 'Courses', href: getPermalink('/courses') },
-        { text: 'Faculty Members', href: getPermalink('faculty', 'category') },
+        { text: 'Faculty Members', href: getPermalink('/facultypage') },
       ],
     },
     {

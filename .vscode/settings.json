@@ -31,5 +31,6 @@
     "astro": {
       "parser": "markdown"
     }
-  }
+  },
+  "liveServer.settings.port": 5501
 }

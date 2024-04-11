@@ -1,0 +1,63 @@
+---
+// Astro frontmatter script
+import Button from "../ui/Button.astro";
+import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
+import { Astro } from 'astro';
+// Assuming posts have been imported using import.meta.glob as previously discussed
+const postFiles = import.meta.glob('/src/posts/*.md', { eager: true });
+
+const posts = Object.values(postFiles).map(({ frontmatter }) => ({
+  title: frontmatter.title,
+  excerpt: frontmatter.excerpt,
+  imageUrl: frontmatter.imageUrl,
+})).slice(0, 4); // Get the latest 4 posts
+
+const { linkText = "View all posts", linkUrl = "/blog", id, isDark = false, classes = {}, bg = "white" } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container} bg={bg}>
+  <div class="flex flex-col mb-8">
+    <div id="carouselContainer" class="carousel">
+      <!-- Pre-render carousel slides -->
+      {posts.map((post, index) => (
+        <div class={`carousel-slide ${index === 0 ? 'active' : ''}`} key={index}>
+          <img src={post.imageUrl} alt={post.title} />
+          <div class="carousel-caption">
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-4">
+      <Button variant="link" href={linkUrl}>{linkText}</Button>
+    </div>
+  </div>
+</WidgetWrapper>
+
+<script>
+  // Client-side JavaScript to alternately show each of the slides
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    // Example: Change slide every 3 seconds
+    setInterval(nextSlide, 3000);
+
+    // Initialize first slide
+    showSlide(currentSlide);
+  });
+</script>

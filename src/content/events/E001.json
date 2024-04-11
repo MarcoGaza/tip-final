@@ -1,0 +1,10 @@
+{
+    "id": "E001",
+    "title": "IE Conference 2024",
+    "description": "The annual conference brings together professionals and academics to discuss the future of Industrial Engineering.",
+    "startDate": "2024-10-04T09:00:00",
+    "endDate": "2024-10-07T17:00:00",
+    "location": "Convention Center",
+    "organizer": "IE Department",
+    "link": "http://example.com/conference"
+}

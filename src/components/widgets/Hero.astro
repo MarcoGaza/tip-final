@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="h-auto pb-2.5 relative bg-transparent md:-mt-[76px] z-10" {...id ? { id } : {}}>
+<section class="h-auto pb-0 relative bg-transparent md:-mt-[76px] z-10" {...id ? { id } : {}}>
   <div class="absolute inset-0 z-0" aria-hidden="true"></div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
@@ -384,13 +384,27 @@ window.addEventListener("load", function () {
     };
   }
   (u = document.createElement("canvas")),
-    (u.style.position = "absolute"),
-    document.body.appendChild(u),
-    (d = u.getContext("2d")),
-    u.setAttribute("title", "click me"),
-    window.addEventListener("click", c),
-    l(),
-    window.requestAnimationFrame(I);
+(u.style.position = "absolute"),
+(u.style.top = "0"),
+(u.style.left = "0"),
+(document.body.appendChild(u)),
+(d = u.getContext("2d")),
+u.setAttribute("title", "click me"),
+window.addEventListener("click", c),
+l(),
+window.requestAnimationFrame(I);
+
+// Set canvas size to match the viewport
+function resizeCanvas() {
+  u.width = window.innerWidth;
+  u.height = window.innerHeight;
+}
+
+// Call resizeCanvas to initially set the size
+resizeCanvas();
+
+// Add event listener to resize canvas whenever
+
 });
 
 </script>

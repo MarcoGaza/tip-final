@@ -1,8 +1,21 @@
 ---
-// Astro component script
-import { findActiveAnnouncements } from '~/utils/blog';
+// Example of importing marquee announcements from JSON files at build time
+const marqueeFiles = import.meta.glob('/src/content/marquee/*.json', { eager: true });
 
-const Announcements = await findActiveAnnouncements();
+// Convert the imported modules into an array of announcements
+const marquees = Object.values(marqueeFiles).map(module => module.default);
+
+const currentDate = new Date();
+
+// Filter marquees based on the current date
+const activeMarquees = marquees.filter(marquee => {
+  const startDate = marquee.startDate ? new Date(marquee.startDate) : null;
+  const endDate = marquee.endDate ? new Date(marquee.endDate) : null;
+  return (!startDate || startDate <= currentDate) && (!endDate || endDate >= currentDate);
+});
+
+// Logging for debugging
+console.log("Active Marquees:", activeMarquees);
 
 export interface Props {
   id?: string;
@@ -45,10 +58,10 @@ const { id = 'announcement', isSticky = true } = Astro.props;
 <div class={isSticky ? 'mb-[-1.25rem]z-30 marquee h-10 bg-black flex items-center relative' : ''} id={id}>
   <span class="marquee-content text-primary">
     {
-      Announcements.map((announcement, index) => (
+      activeMarquees.map((marquee, index) => (
         <Fragment key={index}>
-          {announcement.excerpt}
-          {index < Announcements.length - 1 && <span class="mx-[400px]" />}
+          {marquee.message}
+          {index < activeMarquees.length - 1 && <span class="mx-[400px]" />}
         </Fragment>
       ))
     }
