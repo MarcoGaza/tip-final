@@ -50,7 +50,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, 'dark:bg-gray-800': isDark, 'bg-white': !isDark },
-    'top-10 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out bg-clip-padding bg-opacity-60',
+    'top-10 z-40 flex-none mx-auto w-full border-b border-gray-50/0 ease-in-out bg-clip-padding bg-opacity-100',
   ]}
   style="backdrop-filter: blur(20px);"
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
@@ -82,11 +82,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
-                  <button class="hover:text-link dark:hover:text-dark px-4 py-3 flex items-center">
+                  <button class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.1 rtl:ml-0 rtl:mr-0.1 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu rounded md:absolute pl-4 md:pl-0 md:hidden font-medium bg-white min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
@@ -143,7 +143,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold border-dark shadow-none w-autow-full bg-primary text-white sm:mb-0" />
+                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
               ))}
             </span>
           ) : (
