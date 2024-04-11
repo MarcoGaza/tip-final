@@ -26,9 +26,10 @@ const {
 <section class="relative bg-transparent md:-mt-[76px] z-10" {...id ? { id } : {}}>
   <div class="absolute inset-0 z-0" aria-hidden="true"></div>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
+  <div class="relative mx-auto px-4 sm:px-6 z-10 bg-white/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg" style="max-width: 60%; width: 60%;">
+
     <div class="pt-0 md:pt-[76px]"></div>
-    <div class="py-12 md:py-20">
+    <div class="py-4 md:py-4">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
         {
           tagline && (
@@ -41,13 +42,13 @@ const {
         {
           title && (
             <h1
-              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
           {
             actions && (
               <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
@@ -71,336 +72,326 @@ const {
 </section>
 
 <script>
-  'use strict';
-  window.addEventListener('load', function () {
-    const k = 15;
+  "use strict";
+window.addEventListener("load", function () {
+  function t(t, e) {
+    return void 0 === e && ((e = t), (t = 0)), M(t + (e - t) * g());
+  }
+  function e(t) {
+    let e = Array.from(new Array(t).keys());
+    return i(e);
+  }
+  function i(e) {
+    let i, s;
+    for (let h = e.length - 1; h >= 1; --h)
+      (i = t(0, h + 1)), (s = e[h]), (e[h] = e[i]), (e[i] = s);
+    return e;
+  }
+  function s() {
+    let t;
+    y = [];
+    for (let e = 0; e < p; ++e) {
+      y[e] = [];
+      for (let i = 0; i < v; ++i) (t = new C(i, e)), (y[e][i] = t);
+    }
+  }
+  function h() {
+    function t(t) {
+      let e, i;
+      t.inMaze = !0;
+      for (let s = 0; s < 6; ++s)
+        (e = t.neighbour(s)),
+          !1 !== e &&
+            ((i = c.indexOf(e)), -1 != i && (c.splice(i, 1), l.push(e)));
+    }
     let s,
-      r,
       h,
       n,
-      v,
-      f,
-      p,
-      o = [],
-      c = {},
-      a;
-    const i = Math.random,
-      y = Math.floor,
-      x = Math.round;
-    const l = Math.max,
-      b = Math.PI,
-      w = 2 * Math.PI;
-    const g = Math.atan2,
-      M = Math.hypot,
-      m = (0, Math.sqrt)(3),
-      E = m / 2;
-    function u(t, e) {
-      return void 0 === e && ((e = t), (t = 0)), y(t + (e - t) * i());
-    }
-    function d(t) {
-      return T(Array.from(new Array(t).keys()));
-    }
-    function T(e) {
-      var i, s;
-      for (let t = e.length - 1; 1 <= t; --t) (i = u(0, t + 1)), (s = e[t]), (e[t] = e[i]), (e[i] = s);
-      return e;
-    }
-    let z;
-    {
-      let t, u, d;
-      ((z = function (t, e) {
-        (this.kx = t), (this.ky = e), (this.neighbours = []);
-      }).dimensions = function () {
-        (u = (h - k * (1.5 * v + 0.1)) / 2 + k),
-          (d = (n - k * m * (f + 0.1)) / 2 + k * m),
-          ((t = [[], [], [], [], [], []])[3][0] = -(k + 0.1)),
-          (t[2][0] = t[4][0] = -(k + 0.1) / 2),
-          (t[1][0] = t[5][0] = +(k + 0.1) / 2),
-          (t[0][0] = k + 0.1),
-          (t[4][1] = t[5][1] = -(k + 0.1) * E),
-          (t[0][1] = t[3][1] = 0),
-          (t[1][1] = t[2][1] = (k + 0.1) * E);
+      r,
+      o = 0,
+      c = [],
+      l = [];
+    for (
+      y.forEach((t) => {
+        t.forEach((t) => {
+          (t.blocked = [!0, !0, !0, !0, !0, !0]),
+            (t.inMaze = !1),
+            (t.tryOrder = e(6)),
+            c.push(t);
+        });
       }),
-        (z.prototype.size = function () {
-          (this.xc = u + 1.5 * this.kx * k),
-            (this.yc = d + this.ky * k * m),
-            1 & this.kx && (this.yc -= k * E),
-            (this.vertices = [[], [], [], [], [], []]),
-            (this.vertices[3][0] = this.xc + t[3][0]),
-            (this.vertices[2][0] = this.vertices[4][0] = this.xc + t[2][0]),
-            (this.vertices[1][0] = this.vertices[5][0] = this.xc + t[1][0]),
-            (this.vertices[0][0] = this.xc + t[0][0]),
-            (this.vertices[4][1] = this.vertices[5][1] = this.yc + t[4][1]),
-            (this.vertices[0][1] = this.vertices[3][1] = this.yc + t[0][1]),
-            (this.vertices[1][1] = this.vertices[2][1] = this.yc + t[1][1]);
-        }),
-        (z.prototype.drawHexagon = function (t) {
-          this.vertices || this.size();
-          var e = r;
-          e.beginPath(),
-            e.moveTo(this.vertices[0][0], this.vertices[0][1]),
-            e.lineTo(this.vertices[1][0], this.vertices[1][1]),
-            e.lineTo(this.vertices[2][0], this.vertices[2][1]),
-            e.lineTo(this.vertices[3][0], this.vertices[3][1]),
-            e.lineTo(this.vertices[4][0], this.vertices[4][1]),
-            e.lineTo(this.vertices[5][0], this.vertices[5][1]),
-            e.lineTo(this.vertices[0][0], this.vertices[0][1]),
-            (e.strokeStyle = '#fce205'),
-            (e.lineWidth = 0.1),
-            (e.fillStyle = `hsl(${t},100%,60%)`),
-            e.fill();
-        }),
-        (z.prototype.drawSide = function (t) {
-          var e = (t + 1) % 6,
-            i = (this.vertices || this.size(), r);
-          i.beginPath(),
-            i.moveTo(this.vertices[t][0], this.vertices[t][1]),
-            i.lineTo(this.vertices[e][0], this.vertices[e][1]),
-            (i.strokeStyle = '#fce205'),
-            (i.lineWidth = 0.1),
-            i.stroke();
-        }),
-        (z.prototype.neighbour = function (t) {
-          let e = this.neighbours[t];
-          if (!(e instanceof z)) {
-            if (!1 === e) return !1;
-            if (
-              (e =
-                1 & this.kx
-                  ? { kx: this.kx + [1, 0, -1, -1, 0, 1][t], ky: this.ky + [0, 1, 0, -1, -1, -1][t] }
-                  : { kx: this.kx + [1, 0, -1, -1, 0, 1][t], ky: this.ky + [1, 1, 1, 0, -1, 0][t] }).kx < 0 ||
-              e.ky < 0 ||
-              e.kx >= v ||
-              e.ky >= f
-            )
-              return (this.neighbours[t] = !1);
-            (e = p[e.ky][e.kx]), ((this.neighbours[t] = e).neighbours[(t + 3) % 6] = this);
-          }
-          return e;
-        }),
-        (z.whichHexagon = function (t, e) {
-          let i, s, r, h, n;
-          (h = x((t - u) / 1.5 / k)), (n = x((e - d) / k / m + 0.1 * (1 & h)));
-          var o = u + 1.5 * h * k;
-          let c = d + n * k * m,
-            a = (1 & h && (c -= k * E), g(e - c, t - o));
-          switch ((a < 0 && (a += w), (a = y((3 * a) / b) % 6))) {
-            case 0:
-              (i = 1.5 * k), (s = E * k);
-              break;
-            case 1:
-              (i = 0), (s = m * k);
-              break;
-            case 2:
-              (i = -1.5 * k), (s = E * k);
-              break;
-            case 3:
-              (i = -1.5 * k), (s = -E * k);
-              break;
-            case 4:
-              (i = 0), (s = -m * k);
-              break;
-            case 5:
-              (i = 1.5 * k), (s = -E * k);
-          }
-          var l = M(t - o, e - c);
-          return (
-            M(t - i - o, e - s - c) < l &&
-              ((r =
-                1 & h
-                  ? { kx: h + [1, 0, -1, -1, 0, 1][a], ky: n + [0, 1, 0, -1, -1, -1][a] }
-                  : { kx: h + [1, 0, -1, -1, 0, 1][a], ky: n + [1, 1, 1, 0, -1, 0][a] }),
-              ({ kx: h, ky: n } = r)),
-            !(h < 0 || n < 0 || h >= v || n >= f) && p[n][h]
-          );
-        });
-    }
-    function A(t, e) {
-      // Adjust the hue to be within the yellow range (40-60)
-      this.cell = t;
-      this.hue = 40 + Math.abs(e % 30); // Ensures hue is between 40 and 60
-      this.mark();
-    }
+        i(c),
+        s = c.pop(),
+        s.depth = 0,
+        t(s);
+      l.length;
 
-    A.prototype.mark = function () {
-      this.cell.explored = !0;
-      // The hue passed here will now be within the yellow range
-      this.cell.drawHexagon(this.hue);
-    };
-
-    A.prototype.explore = function () {
-      let e, i;
-      var s = d(6),
-        r = this.cell;
-      for (let t = 0; t < 6; ++t) {
-        i = s[t];
-        if (!r.blocked[i] && !r.neighbour(i).explored) {
-          if (e) {
-            // Adjust hue changes to stay within the yellow range during exploration
-            a.push(new A(r.neighbour(i), this.hue + (Math.random() * 20 - 10)));
-          } else {
-            e = r.neighbour(i);
+    ) {
+      (r = void 0), i(l);
+      t: for (let t = l.length - 1; t >= 0; --t) {
+        s = l[t];
+        for (let e = 0; e < 6; ++e)
+          if (((h = s.tryOrder[e]), (n = s.neighbour(h)), n && n.inMaze)) {
+            r = t;
+            break t;
           }
-        }
       }
-      return !!e && ((this.cell = e), this.mark(), !0);
-    };
-
-    function setupCanvas() {
-      if (!s) {
-        s = document.createElement('canvas');
-        s.style.position = 'absolute';
-        document.body.appendChild(s);
-        s.setAttribute('title', 'click me');
-        r = s.getContext('2d');
-        window.addEventListener('click', function (t) {
-          if ('CANVAS' === t.target.tagName) {
-            o.push('click');
-            c.x = t.clientX;
-            c.y = t.clientY;
-          }
-        });
-      } else {
-        r.clearRect(0, 0, s.width, s.height); // Clear the canvas for a new render
-      }
-      s.width = window.innerWidth;
-      s.height = window.innerHeight;
+      if (void 0 === r) throw "Bug in createMaze : found no possibility";
+      (s.blocked[h] = !1),
+        (n.blocked[(h + 3) % 6] = !1),
+        (s.depth = n.depth + 1),
+        s.depth > o && (o = s.depth),
+        l.splice(r, 1),
+        t(s);
     }
-
-    function F() {
-      setupCanvas();
-      h = window.innerWidth;
-      n = window.innerHeight;
-      var i,
-        t = l((window.innerWidth - h) / 2, 0),
-        e = l((window.innerHeight - n) / 2, 0);
-      if (
-        ((s.style.left = t + 'px'),
-        (s.style.top = e + 'px'),
-        (s.width = h),
-        (s.height = n),
-        (r.lineCap = 'round'),
-        (v = y((h / k - 0.1) / 1.5)),
-        (f = y(n / k / m - 0.1)),
-        (v += 3),
-        (f += 3),
-        !(v <= 3 || f <= 3))
-      ) {
-        z.dimensions(), (p = []);
-        for (let e = 0; e < f; ++e) {
-          p[e] = [];
-          for (let t = 0; t < v; ++t) (i = new z(t, e)), (p[e][t] = i);
-        }
-        {
-          let i,
-            s,
-            r,
-            h,
-            t = 0,
-            n = [],
-            o = [];
-          for (
-            p.forEach((t) => {
-              t.forEach((t) => {
-                (t.blocked = [!0, !0, !0, !0, !0, !0]), (t.inMaze = !1), (t.tryOrder = d(6)), n.push(t);
-              });
-            }),
-              T(n),
-              (i = n.pop()).depth = 0,
-              c(i);
-            o.length;
-
-          ) {
-            (h = void 0), T(o);
-            t: for (let e = o.length - 1; 0 <= e; --e) {
-              i = o[e];
-              for (let t = 0; t < 6; ++t)
-                if (((s = i.tryOrder[t]), (r = i.neighbour(s)) && r.inMaze)) {
-                  h = e;
-                  break t;
-                }
-            }
-            if (void 0 === h) throw 'Bug in createMaze : found no possibility';
-            (i.blocked[s] = !1),
-              (r.blocked[(s + 3) % 6] = !1),
-              (i.depth = r.depth + 1),
-              i.depth > t && (t = i.depth),
-              o.splice(h, 1),
-              c(i);
-          }
-          function c(e) {
-            var i, s;
-            e.inMaze = !0;
-            for (let t = 0; t < 6; ++t)
-              !1 !== (i = e.neighbour(t)) && -1 != (s = n.indexOf(i)) && (n.splice(s, 1), o.push(i));
-          }
-        }
-        return (
-          p.forEach((t) => {
-            t.forEach((i) => {
-              i.blocked.forEach((t, e) => {
-                t && i.drawSide(e);
-              });
+  }
+  function n(t, e) {
+    (this.cell = t), (this.hue = e), this.mark();
+  }
+  function r(e, i) {
+    void 0 === e && ((e = k / 2), (i = f / 2));
+    let s = C.whichHexagon(e, i);
+    return (
+      s instanceof C &&
+      (y.forEach((t) => {
+        t.forEach((t) => {
+          t.explored = !1;
+        });
+      }),
+      (x = [new n(s, t(360))]),
+      !0)
+    );
+  }
+  function o() {
+    (k = window.innerWidth), (f = window.innerHeight);
+    let t = E((window.innerWidth - k) / 2, 0),
+      e = E((window.innerHeight - f) / 2, 0);
+    if (
+      ((u.style.left = t + "px"),
+      (u.style.top = e + "px"),
+      (u.width = k),
+      (u.height = f),
+      (d.lineCap = "round"),
+      (v = M((k / a - 0.5) / 1.5)),
+      (p = M(f / a / P - 0.5)),
+      (v += 3),
+      (p += 3),
+      !(v <= 3 || p <= 3))
+    )
+      return (
+        C.dimensions(),
+        s(),
+        h(),
+        y.forEach((t) => {
+          t.forEach((t) => {
+            t.blocked.forEach((e, i) => {
+              e && t.drawSide(i);
             });
-          }),
-          1
-        );
-      }
-    }
-
-    (A.prototype.mark = function () {
-      (this.cell.explored = !0), this.cell.drawHexagon(this.hue);
+          });
+        }),
+        !0
+      );
+  }
+  function c(t) {
+    "CANVAS" == t.target.tagName &&
+      (b.push("click"), (w.x = t.clientX), (w.y = t.clientY));
+  }
+  function l() {
+    b.push("click");
+  }
+  const a = 4;
+  let u,
+    d,
+    k,
+    f,
+    v,
+    p,
+    y,
+    x,
+    b = [],
+    w = {};
+  const g = Math.random,
+    M = Math.floor,
+    m = Math.round,
+    E = (Math.ceil, Math.abs, Math.min, Math.max),
+    T = Math.PI,
+    z = (Math.PI, 2 * Math.PI),
+    A = (Math.sin, Math.cos, Math.atan2),
+    F = (Math.tan, Math.hypot),
+    H = Math.sqrt,
+    P = H(3),
+    S = P / 2;
+  Math.PI;
+  let C, I;
+  {
+    let t, e, i;
+    (C = function (t, e) {
+      (this.kx = t), (this.ky = e), (this.neighbours = []);
     }),
-      (A.prototype.explore = function () {
-        let e, i;
-        var s = d(6),
-          r = this.cell;
-        for (let t = 0; t < 6; ++t)
-          (i = s[t]),
-            r.blocked[i] ||
-              r.neighbour(i).explored ||
-              (e ? a.push(new A(r.neighbour(i), this.hue + (u(5, 10) % 360))) : (e = r.neighbour(i)));
-        return !!e && ((this.cell = e), this.mark(), !0);
-      });
-    let H;
-    {
-      let r = 0;
-      H = function (t) {
-        var e,
-          i,
-          s = o.shift();
-        switch ((window.requestAnimationFrame(H), r)) {
+      (C.dimensions = function () {
+        (e = (k - a * (1.5 * v + 0.5)) / 2 + a),
+          (i = (f - a * P * (p + 0.5)) / 2 + a * P),
+          (t = [[], [], [], [], [], []]),
+          (t[3][0] = -(a + 0.5)),
+          (t[2][0] = t[4][0] = -(a + 0.5) / 2),
+          (t[1][0] = t[5][0] = +(a + 0.5) / 2),
+          (t[0][0] = a + 0.5),
+          (t[4][1] = t[5][1] = -(a + 0.5) * S),
+          (t[0][1] = t[3][1] = 0),
+          (t[1][1] = t[2][1] = (a + 0.5) * S);
+      }),
+      (C.prototype.size = function () {
+        (this.xc = e + 1.5 * this.kx * a),
+          (this.yc = i + this.ky * a * P),
+          1 & this.kx && (this.yc -= a * S),
+          (this.vertices = [[], [], [], [], [], []]),
+          (this.vertices[3][0] = this.xc + t[3][0]),
+          (this.vertices[2][0] = this.vertices[4][0] = this.xc + t[2][0]),
+          (this.vertices[1][0] = this.vertices[5][0] = this.xc + t[1][0]),
+          (this.vertices[0][0] = this.xc + t[0][0]),
+          (this.vertices[4][1] = this.vertices[5][1] = this.yc + t[4][1]),
+          (this.vertices[0][1] = this.vertices[3][1] = this.yc + t[0][1]),
+          (this.vertices[1][1] = this.vertices[2][1] = this.yc + t[1][1]);
+      }),
+      (C.prototype.drawHexagon = function (t) {
+    this.vertices || this.size();
+    let e = d;
+    e.beginPath(),
+      e.moveTo(this.vertices[0][0], this.vertices[0][1]),
+      e.lineTo(this.vertices[1][0], this.vertices[1][1]),
+      e.lineTo(this.vertices[2][0], this.vertices[2][1]),
+      e.lineTo(this.vertices[3][0], this.vertices[3][1]),
+      e.lineTo(this.vertices[4][0], this.vertices[4][1]),
+      e.lineTo(this.vertices[5][0], this.vertices[5][1]),
+      e.lineTo(this.vertices[0][0], this.vertices[0][1]),
+      (e.strokeStyle = "transparent"),
+      (e.lineWidth = 0.5),
+      (e.fillStyle = `hsl(55, 100%, ${Math.max(20, 60 - t % 40)}%)`),
+      e.fill();
+      }),
+      (C.prototype.drawSide = function (t) {
+        let e = (t + 1) % 6;
+        this.vertices || this.size();
+        let i = d;
+        i.beginPath(),
+          i.moveTo(this.vertices[t][0], this.vertices[t][1]),
+          i.lineTo(this.vertices[e][0], this.vertices[e][1]),
+          (i.strokeStyle = "transparent"),
+          (i.lineWidth = 0.5),
+          i.stroke();
+      }),
+      (C.prototype.neighbour = function (t) {
+        let e = this.neighbours[t];
+        return e instanceof C
+          ? e
+          : !1 !== e &&
+              ((e =
+                1 & this.kx
+                  ? {
+                      kx: this.kx + [1, 0, -1, -1, 0, 1][t],
+                      ky: this.ky + [0, 1, 0, -1, -1, -1][t],
+                    }
+                  : {
+                      kx: this.kx + [1, 0, -1, -1, 0, 1][t],
+                      ky: this.ky + [1, 1, 1, 0, -1, 0][t],
+                    }),
+              e.kx < 0 || e.ky < 0 || e.kx >= v || e.ky >= p
+                ? ((this.neighbours[t] = !1), !1)
+                : ((e = y[e.ky][e.kx]),
+                  (this.neighbours[t] = e),
+                  (e.neighbours[(t + 3) % 6] = this),
+                  e));
+      }),
+      (C.whichHexagon = function (t, s) {
+        let h, n, r, o, c;
+        (o = m((t - e) / 1.5 / a)), (c = m((s - i) / a / P + 0.5 * (1 & o)));
+        let l = e + 1.5 * o * a,
+          u = i + c * a * P;
+        1 & o && (u -= a * S);
+        let d = A(s - u, t - l);
+        switch ((d < 0 && (d += z), (d = M((3 * d) / T) % 6), d)) {
           case 0:
-            F() && ++r;
+            (h = 1.5 * a), (n = S * a);
             break;
           case 1:
-            (e = h / 2),
-              (i = n / 2),
-              (e = z.whichHexagon(e, i)) instanceof z &&
-                (p.forEach((t) => {
-                  t.forEach((t) => {
-                    t.explored = !1;
-                  });
-                }),
-                (a = [new A(e, u(360))])) &&
-                ++r;
+            (h = 0), (n = P * a);
             break;
           case 2:
-            0 == a.length
-              ? ++r
-              : a.forEach((t, e) => {
-                  t.explore() || a.splice(e, 1);
-                });
+            (h = -1.5 * a), (n = S * a);
             break;
           case 3:
-            r = 0; // Removed the 'click' condition to reset the stage automatically
+            (h = -1.5 * a), (n = -S * a);
+            break;
+          case 4:
+            (h = 0), (n = -P * a);
+            break;
+          case 5:
+            (h = 1.5 * a), (n = -S * a);
         }
-      };
+        let k = F(t - l, s - u),
+          f = F(t - h - l, s - n - u);
+        return (
+          f < k &&
+            ((r =
+              1 & o
+                ? {
+                    kx: o + [1, 0, -1, -1, 0, 1][d],
+                    ky: c + [0, 1, 0, -1, -1, -1][d],
+                  }
+                : {
+                    kx: o + [1, 0, -1, -1, 0, 1][d],
+                    ky: c + [1, 1, 1, 0, -1, 0][d],
+                  }),
+            ({ kx: o, ky: c } = r)),
+          !(o < 0 || c < 0 || o >= v || c >= p) && y[c][o]
+        );
+      });
+  }
+  (n.prototype.mark = function () {
+    (this.cell.explored = !0), this.cell.drawHexagon(this.hue);
+  }),
+  n.prototype.explore = function() {
+    let i, s, h = e(6), r = this.cell;
+    for (let e = 0; e < 6; ++e) {
+        s = h[e],
+        r.blocked[s] || r.neighbour(s).explored || (i ? x.push(new n(r.neighbour(s), this.hue - 1)) : (i = r.neighbour(s))); // Adjusting 'this.hue - 5' to simulate the effect of changing lightness or hue for gradual change.
     }
+    return !!i && ((this.cell = i), this.mark(), !0);
+};
+  {
+    let t = 0;
+    I = function (e) {
+      const i = b.shift();
+      switch ((window.requestAnimationFrame(I), t)) {
+        case 0:
+          o() && ++t;
+          break;
+        case 1:
+          r(w.x, w.y) && ++t;
+          break;
+        case 2:
+          if (0 == x.length) {
+            ++t;
+            break;
+          }
+          x.forEach((t, e) => {
+            t.explore() || x.splice(e, 1);
+          });
+          break;
+        case 3:
+          if ("click" !== i) break;
+          t = 0;
+      }
+    };
+  }
+  (u = document.createElement("canvas")),
+    (u.style.position = "absolute"),
+    document.body.appendChild(u),
+    (d = u.getContext("2d")),
+    u.setAttribute("title", "click me"),
+    window.addEventListener("click", c),
+    l(),
+    window.requestAnimationFrame(I);
+});
 
-    F(); // Initial render
-    setInterval(F, 10000); // Changed to re-render every 5 seconds
-
-    window.requestAnimationFrame(H);
-  });
 </script>
