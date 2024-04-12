@@ -25,7 +25,30 @@ export default defineConfig({
   }), sitemap(), mdx(), icon({
     include: {
       tabler: ['*'],
-      'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']
+      'flat-color-icons': [
+        'home',
+        'about',
+        'briefcase',
+        'graduation-cap',
+        'library',
+        'engineering',
+        'todo-list',
+        'org-unit',
+        'reading-ebook',
+        'news',
+        'idea',
+        'calendar',
+        'conference-call',
+        'business-contact',
+        'template',
+        'gallery',
+        'approval',
+        'document',
+        'advertising',
+        'currency-exchange',
+        'voice-presentation',
+        'database'
+      ]
     }
   }), ...whenExternalScripts(() => partytown({
     config: {

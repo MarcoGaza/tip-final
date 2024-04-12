@@ -85,7 +85,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             {links?.length ? (
               <>
                 <button class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-                  {icon && <Icon name={icon} class="w-5 h-5 mr-2" />}
+                  {icon && <Icon name={icon} class="w-6 h-6 mr-2" />}
                   {text}{' '}
                   <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.1 rtl:ml-0 rtl:mr-0.1 hidden md:inline" />
                 </button>
@@ -102,13 +102,13 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <div class="flex items-start"> <!-- Changed items-center to items-start -->
           {icon && (
   <div class="w-10 h-10 border-primary aspect-square rounded-full overflow-hidden flex items-center justify-center">
-    <Icon name={icon} class={twMerge("w-full h-full object-cover", defaultIconClass)} />
+    <Icon name={icon} class={twMerge("w-6 h-6", defaultIconClass)} />
   </div>
 )}
-         <div class="ml-3">
-            <div class="font-semibold">{text2}</div>
-            <div class="text-sm text-gray-500">{description}</div>
-          </div>
+<div class="ml-3">
+  <div class="text-sm font-medium text-yellow-700 text-nowrap">{text2}</div>
+  <div class="text-xs text-gray-500">{description}</div>
+</div>
         </div>
       </a>
     </li>
