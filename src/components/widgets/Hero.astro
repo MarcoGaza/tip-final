@@ -23,11 +23,23 @@ const {
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
+<style>
+.glass{
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  transition: background-position 0.5s ease-in-out;
+  background-position: left;
+}
+
+.glass:hover {
+  background-position: right;
+}
+
+</style>
 
 <section class="pb-32 relative bg-transparent md:-mt-[76px] z-10 h-screen" {...id ? { id } : {}}>
   <div class="absolute inset-0 z-0" aria-hidden="true"></div>
 
-  <div class="relative mx-auto px-4 sm:px-6 z-10 bg-white/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg" style="max-width: 70%; width: 70%;">
+  <div class="glass relative mx-auto px-4 sm:px-6 z-10 bg-gray/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg image-container" style="max-width: 70%; width: 70%;">
 
     <div class="pt-0 md:pt-[76px]"></div>
     <div class="mt-4 py-1 md:py-1">
@@ -397,5 +409,15 @@ window.addEventListener("load", function () {
     
 });
 
+
+window.addEventListener("DOMContentLoaded", function () {
+  const glassElement = document.querySelector(".glass");
+  glassElement.addEventListener("mouseover", function () {
+    glassElement.classList.add("glass-hover");
+  });
+  glassElement.addEventListener("mouseout", function () {
+    glassElement.classList.remove("glass-hover");
+  });
+});
 
 </script>
