@@ -1,40 +1,67 @@
 ---
-import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
-import type { LeadershipMessageProps } from '~/types'; 
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { LeadershipMessageProps } from '~/types';
 
-const { id, title, leader, welcomeMessage, blockQuote, callToAction, isReversed,
+const {
+  id,
+  title,
+  leader,
+  welcomeMessage,
+  blockQuote,
+  callToAction,
+  isReversed,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render("bg"), } = Astro.props as LeadershipMessageProps;
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as LeadershipMessageProps;
 ---
+
 <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container} bg={bg}>
   <section id={id} class="flex flex-col lg:flex-row items-center lg:space-x-4 my-8">
-    <div class={`${isReversed ? "lg:order-last" : ""} w-full lg:w-1/2`}>
+    <div class={`${isReversed ? 'lg:order-last' : ''} w-full lg:w-1/2`}>
       <div class="flex-1 flex justify-center items-center">
-      <img src={leader.profilePicture.src} alt={leader.profilePicture.alt} class="rounded object-fit: contain; w-50 h-auto object-cover max-h-96" />
-    </div></div>
+        <img
+          src={leader.profilePicture.src}
+          alt={leader.profilePicture.alt}
+          class="rounded object-fit: contain; w-50 h-auto object-cover max-h-96"
+        />
+      </div>
+    </div>
     <div class="w-full lg:w-1/2 space-y-4">
       <h2 class="text-3xl text-secondary font-semibold">{title}</h2>
       <div class="text-muted space-y-2">
         <p>{leader.bio}</p>
-        {leader.vision && <p><strong>Vision:</strong> {leader.vision}</p>}
+        {
+          leader.vision && (
+            <p>
+              <strong>Vision:</strong> {leader.vision}
+            </p>
+          )
+        }
         <p>{welcomeMessage}</p>
       </div>
-      {blockQuote && (
-        <blockquote class="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
-          "{blockQuote.quote}"
-          <footer class="blockquote-footer">
-            — {blockQuote.author}, <cite>{blockQuote.position}</cite>
-          </footer>
-        </blockquote>
-      )}
-      {callToAction && (
-<div class="grid place-items-center">
-  <a href={callToAction.url} class="bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition-colors">
-    {callToAction.text}
-  </a>
-</div>
-      )}
+      {
+        blockQuote && (
+          <blockquote class="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote mb-2.5">
+            "{blockQuote.quote}"
+            <footer class="blockquote-footer text-right">
+              — {blockQuote.author}, <cite>{blockQuote.position}</cite>
+            </footer>
+          </blockquote>
+        )
+      }
+      {
+        callToAction && (
+          <div class="grid place-items-center">
+            <a
+              href={callToAction.url}
+              class="bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition-colors"
+            >
+              {callToAction.text}
+            </a>
+          </div>
+        )
+      }
     </div>
   </section>
 </WidgetWrapper>

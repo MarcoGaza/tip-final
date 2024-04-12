@@ -55,7 +55,7 @@ const { id = 'announcement', isSticky = true } = Astro.props;
   }
 </style>
 
-<div class={isSticky ? 'mb-[-1.25rem]z-30 marquee h-10 bg-black flex items-center relative' : ''} id={id}>
+<div class={isSticky ? 'mb-[-1rem] z-30 marquee h-10 bg-black flex items-center relative' : ''} id={id}>
   <span class="marquee-content text-primary">
     {
       activeMarquees.map((marquee, index) => (

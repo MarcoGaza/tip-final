@@ -29,7 +29,7 @@ const { metadata } = Astro.props;
   </div>
 
   <!-- Header with z-index adjusted to ensure it's above the content but below the announcement -->
-  <div class="sticky top-[calc(2.5rem+1px)] z-30 bg-transparent">
+  <div class="sticky top-[calc(2.5rem-3px)] z-30 bg-transparent">
     <slot name="header">
       <Header {...headerData} isSticky showRssFeed showToggleTheme />
     </slot>

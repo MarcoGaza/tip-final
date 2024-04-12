@@ -1,6 +1,7 @@
 ---
 import Button from '~/components/ui/Button.astro';
 import type { CallToAction } from '~/types';
+import Note from '~/components/widgets/Note.astro';
 
 export interface Props {
   id?: string;
@@ -23,13 +24,13 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative bg-transparent md:-mt-[76px] z-10" {...id ? { id } : {}}>
+<section class="pb-32 relative bg-transparent md:-mt-[76px] z-10 h-screen" {...id ? { id } : {}}>
   <div class="absolute inset-0 z-0" aria-hidden="true"></div>
 
-  <div class="relative mx-auto px-4 sm:px-6 z-10 bg-white/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg" style="max-width: 60%; width: 60%;">
+  <div class="relative mx-auto px-4 sm:px-6 z-10 bg-white/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg" style="max-width: 70%; width: 70%;">
 
     <div class="pt-0 md:pt-[76px]"></div>
-    <div class="py-4 md:py-4">
+    <div class="mt-4 py-1 md:py-1">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
         {
           tagline && (
@@ -70,6 +71,7 @@ const {
     </div>
   </div>
 </section>
+
 
 <script>
   "use strict";
@@ -194,10 +196,10 @@ window.addEventListener("load", function () {
   }
   function c(t) {
     "CANVAS" == t.target.tagName &&
-      (b.push("click"), (w.x = t.clientX), (w.y = t.clientY));
+      (b.push(), (w.x = t.clientX), (w.y = t.clientY));
   }
   function l() {
-    b.push("click");
+    b.push();
   }
   const a = 4;
   let u,
@@ -392,6 +394,8 @@ window.addEventListener("load", function () {
     window.addEventListener("click", c),
     l(),
     window.requestAnimationFrame(I);
+    
 });
+
 
 </script>

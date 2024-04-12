@@ -1,5 +1,5 @@
 site:
-  name: TIP Industrial Engineering Department
+  name: Industrial Engineering Department
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: TIP Industrial Engineering Department
+    default: Industrial Engineering Department
     template: '%s — AstroWind'
   description: "\U0001F680 The Industrial Engineering Department at the Technological Institute of the Philippines (TIP IE Department) stands at the forefront of nurturing leadership and innovation in the field of Industrial Engineering. Our department is committed to excellence in teaching, bolstered by a curriculum that encompasses the latest advancements and methodologies in Industrial Engineering. We pride ourselves on a culture of innovation and research, aiming to solve real-world problems and advance the field. Our strong collaboration with industry partners enriches our programs, offering students invaluable real-world experience and enhancing job opportunities after graduation. Our department is an ideal environment for students aspiring to become leaders in engineering, providing them with the knowledge, skills, and opportunities to excel."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: TIP Industrial Engineering Department
+    site_name: Industrial Engineering Department
     images:
       - url: '~/assets/images/default.png'
         width: 1200
