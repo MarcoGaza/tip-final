@@ -1,44 +1,31 @@
 ---
-// Astro component script tag with necessary imports
 import Layout from '~/layouts/PageLayout.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
+import Calendar from '~/components/widgets/Calendar.astro';
 import type { Post } from '~/types';
-import BigCalendar from '~/utils/bigCalendar.jsx';
 
 const metadata = {
-  title: 'Events',
+ title: 'Events',
 };
 
-// Initialize your props and other variables here
-const props = Astro.props as Post;
+interface Props {
+  id?: string;
+  title: string;
+}
 
-// You can directly await these operations at the top level, without wrapping in an IIFE
-const titlePromise = Astro.slots.render('title');
-const subtitlePromise = Astro.slots.render('subtitle');
-const taglinePromise = Astro.slots.render('tagline');
-const bgPromise = Astro.slots.render('bg');
 
-// Use Promise.all to wait for all promises if necessary
-const [title, subtitle, tagline, bg] = await Promise.all([titlePromise, subtitlePromise, taglinePromise, bgPromise]);
-
-// Set defaults after awaiting the promises
-const finalTitle = title || props.title;
-const finalSubtitle = subtitle || props.subtitle;
-const finalTagline = tagline || props.tagline;
-const finalBg = bg || props.bg;
-
-// Other props that don't require async operations can be set directly
-const items = props.items || [];
-const id = props.id;
-const isDark = props.isDark || false;
-const classes = props.classes || {};
 ---
 
-<Layout metadata={metadata}>
-  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={finalBg}>
-    <Headline title={finalTitle} subtitle={finalSubtitle} tagline={finalTagline} classes={classes?.headline} />
 
-    <BigCalendar />
+<Layout metadata={metadata}>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
+ 
+   <div id={id} class="bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
+    <h2 class="text-xl">{title}</h2>
+    <Calendar />
+  </div>
   </WidgetWrapper>
-</Layout>
+ </Layout>
+ 

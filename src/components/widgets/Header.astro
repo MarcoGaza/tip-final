@@ -54,7 +54,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, 'dark:slate-800': isDark, 'bg-gray-200': !isDark },
-    'top-8 z-40 flex-none mx-auto w-full ease-in-out bg-clip-padding',
+    'top-10 h-14 z-40 flex-none mx-auto w-full ease-in-out bg-clip-padding',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
@@ -159,7 +159,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
-                <Button {...btnProps} class="btn btn-primary ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
+                <Button {...btnProps} class="btn btn-dark ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
               ))}
             </span>
           ) : (

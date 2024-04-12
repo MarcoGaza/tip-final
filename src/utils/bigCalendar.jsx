@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'; // Import and use React
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { findActiveEvents } from '~/utils/blog';
 
 const localizer = momentLocalizer(moment);
 
-const BigCalendarComponent = () => {
-    const [events, setEvents] = useState([]);
+const BigCalendarComponent = ({ events }) => { 
+  const [calendarEvents, setCalendarEvents] = useState(events); // Use useState
 
-    useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const activeEvents = await findActiveEvents();
-                const formattedEvents = activeEvents.map(event => ({
-                    title: event.title,
-                    start: new Date(event.startDate),
-                    end: new Date(event.endDate),
-                    allDay: event.metadata?.allDay || false
-                }));
-                setEvents(formattedEvents);
-            } catch (error) {
-                console.error('Error fetching events:', error);
-            }
-        };
+  // Example: Update events on any change to the 'events' prop
+  useEffect(() => {
+    setCalendarEvents(events); 
+  }, [events]); 
 
-        fetchEvents();
-    }, []);
-
-    return (
-        <div>
-            <Calendar
-                localizer={localizer}
-                events={events}
-                startAccessor="start"
-                endAccessor="end"
-                style={{ height: 500 }}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <Calendar
+        localizer={localizer}
+        events={calendarEvents} // Use the state variable
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 500 }}
+      />
+    </div>
+  );
 };
 
 export default BigCalendarComponent;

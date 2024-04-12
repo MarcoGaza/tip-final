@@ -23,27 +23,14 @@ const {
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
-<style>
-.glass{
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
-  transition: background-position 0.5s ease-in-out;
-  background-position: left;
-}
 
-.glass:hover {
-  background-position: right;
-}
 
-</style>
+<section class="relative px-4 sm:px-8 pb-20 md:pt-36 sm:pt-20 bg-transparent md:-mt-[5.5rem] z-10 h-screen" {...id ? { id } : {}}>
+  <canvas id="maze-canvas" class="inset-0 z-0" aria-hidden="true"></canvas>
 
-<section class="pb-32 relative bg-transparent md:-mt-[76px] z-10 h-screen" {...id ? { id } : {}}>
-  <div class="absolute inset-0 z-0" aria-hidden="true"></div>
-
-  <div class="glass relative mx-auto px-4 sm:px-6 z-10 bg-gray/30 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg image-container" style="max-width: 70%; width: 70%;">
-
-    <div class="pt-0 md:pt-[76px]"></div>
-    <div class="mt-4 py-1 md:py-1">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+  <div class="container mx-auto"> 
+      <div class="glass relative px-10 py-10 flex flex-col items-center justify-center bg-gray-300/50 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg overflow-x-hidden overflow-y-auto">
+          <div class="text-center max-w-5xl mx-auto">
         {
           tagline && (
             <p
@@ -78,7 +65,6 @@ const {
             )
           }
         </div>
-        {content && <Fragment set:html={content} />}
       </div>
     </div>
   </div>
@@ -183,6 +169,7 @@ window.addEventListener("load", function () {
     if (
       ((u.style.left = t + "px"),
       (u.style.top = e + "px"),
+      (u.style.zIndex = 1),
       (u.width = k),
       (u.height = f),
       (d.lineCap = "round"),
@@ -213,7 +200,7 @@ window.addEventListener("load", function () {
   function l() {
     b.push();
   }
-  const a = 4;
+  const a = 10;
   let u,
     d,
     k,
@@ -398,7 +385,7 @@ window.addEventListener("load", function () {
       }
     };
   }
-  (u = document.createElement("canvas")),
+  (u = document.getElementById("maze-canvas")),
     (u.style.position = "absolute"),
     document.body.appendChild(u),
     (d = u.getContext("2d")),
