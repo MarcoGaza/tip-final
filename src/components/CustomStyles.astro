@@ -11,7 +11,7 @@
     --aw-font-weight-body: 400; /* Standard weight for body */
 
     --aw-color-primary: rgb(255 197 9);
-    --aw-color-secondary: rgb(33 54 99);
+    --aw-color-secondary: rgb(48, 80, 150);
     --aw-color-accent: rgb(196 145 2);
 
     --aw-color-text-heading: rgb(0 0 0); 
@@ -19,10 +19,11 @@
     --aw-color-text-muted: rgb(16 16 16 / 66%);
     --aw-color-bg-page: rgb(255 255 255);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: rgb(28, 28, 28);
 
-    ::selection {background-color: lavender;}
-
+    ::selection {
+      background-color: #cccccc; /* Gray */
+    }
   }
 
   .dark {
@@ -41,8 +42,10 @@
     --aw-color-text-default: rgb(229 236 246);
     --aw-color-text-muted: rgb(229 236 246 / 66%);
     --aw-color-bg-page: var(--aw-color-bg-page-dark);
-
-    ::selection {background-color: black; color: snow}
+    ::selection {
+      background-color: #666666; /* Dark gray */
+      color: snow;
+    }
   }
 
   /* Applying font weights */

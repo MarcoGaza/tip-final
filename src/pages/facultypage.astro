@@ -16,13 +16,15 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <div class="text-center py-8">
-    <h1 class="text-3xl font-bold text-accent">Our Esteemed Faculty</h1>
-    <p class="text-accent">Dedicated educators and leaders in their fields</p>
+    <h1 class="text-4xl font-bold text-primary mb-4">Meet Our Esteemed Faculty</h1>
+    <p class="text-lg text-gray-600">Dedicated educators and leaders in their fields</p>
   </div>
 
   <div class="faculty-container grid grid-cols-1 md:grid-cols-2 gap-4">
     {faculty.map(member => (
-      <FacultyCard {...member} />
+      <div class="w-full">
+        <FacultyCard {...member} class="h-full" />
+      </div>
     ))}
   </div>
 </Layout>
