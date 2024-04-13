@@ -47,20 +47,6 @@ collections:
       - { label: 'Department', name: 'department', widget: 'string', required: false }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
       - { label: 'Biography', name: 'biography', widget: 'text', required: false }
-      - label: 'Socials'
-        name: 'socials'
-        widget: 'list'
-        required: false
-        fields:
-          - { label: 'Platform', name: 'platform', widget: 'string' }
-          - { label: 'URL', name: 'url', widget: 'string' }
-      - label: 'Classes'
-        name: 'classes'
-        widget: 'object'
-        required: false
-        fields:
-          - { label: 'Class Name', name: 'className', widget: 'string' }
-          - { label: 'Class ID', name: 'classID', widget: 'string' }
 
   - name: 'marquee'
     label: 'Marquee Announcements'
