@@ -2,6 +2,8 @@
 // Import Astro components
 import Layout from '~/layouts/PageLayout.astro';
 import FacultyCard from '~/components/widgets/FacultyCard.astro';
+import Headline from "~/components/ui/Headline.astro";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 // Import faculty data from JSON files
 const facultyDataFiles = import.meta.glob('../content/faculty/*.json', { eager: true });
@@ -9,22 +11,92 @@ const facultyDataFiles = import.meta.glob('../content/faculty/*.json', { eager: 
 // Process imported files to extract default exports (faculty data)
 const faculty = Object.values(facultyDataFiles).map((file) => file.default);
 
+const {
+  title = 'Industrial Engineering Department Faculty',
+  subtitle = 'Where expertise meets innovation',
+  tagline = 'Faculty Members',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Brands;
+
 const metadata = {
   title: 'Faculty Members',
 };
+
+// Find the index of the Chairperson in the faculty array
+const chairpersonIndex = faculty.findIndex(member => member.position === 'Chairperson');
+
+// Reorder faculty array so that Chairperson is first
+if (chairpersonIndex !== -1) {
+  const chairperson = faculty.splice(chairpersonIndex, 1);
+  faculty.unshift(chairperson[0]);
+}
+
 ---
 
 <Layout metadata={metadata}>
-  <div class="text-center py-8">
-    <h1 class="text-4xl font-bold text-primary mb-4">Meet Our Esteemed Faculty</h1>
-    <p class="text-lg text-gray-600">Dedicated educators and leaders in their fields</p>
-  </div>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+    <Headline title={title} subtitle={subtitle} tagline={tagline} />
+ 
+   <div class="faculty-carousel"> <div class="faculty-container grid grid-cols-1 md:grid-cols-2 gap-1">
+      {faculty.map(member => (
+        <div class="w-full">
+          <FacultyCard {...member} class="w-full h-full" />
+        </div>
+      ))}
+     </div>
+ 
+     <div class="carousel-nav">
+        <button class="prev">Previous</button>
+        <button class="next">Next</button>
+     </div>
+   </div> 
+ </WidgetWrapper>
+ </Layout>
 
-  <div class="faculty-container grid grid-cols-1 md:grid-cols-2 gap-4">
-    {faculty.map(member => (
-      <div class="w-full">
-        <FacultyCard {...member} class="h-full" />
-      </div>
-    ))}
-  </div>
-</Layout>
+ <style>
+
+.faculty-carousel .faculty-container {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap; 
+  scroll-behavior: smooth;
+}
+
+.faculty-carousel .w-full { 
+  flex: 0 0 auto; 
+  margin-right: 1rem;
+}
+
+
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-nav button {
+  background-color: #ddd; 
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+ </style>
+
+ <script>
+  const container = document.querySelector('.faculty-container');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+function scrollCarousel(direction) {
+  const scrollAmount = container.offsetWidth; // Adjust for card width
+  container.scrollLeft += (direction === 'next') ? scrollAmount : -scrollAmount;
+}
+
+prevButton.addEventListener('click', () => scrollCarousel('prev'));
+nextButton.addEventListener('click', () => scrollCarousel('next'));
+
+ </script>

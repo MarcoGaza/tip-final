@@ -1,0 +1,41 @@
+---
+// Import Astro components
+import Layout from '~/layouts/PageLayout.astro';
+import FacultyCard from '~/components/widgets/FacultyCard.astro';
+import Headline from "~/components/ui/Headline.astro";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+// Import faculty data from JSON files
+const facultyDataFiles = import.meta.glob('../content/faculty/*.json', { eager: true });
+
+// Process imported files to extract default exports (faculty data)
+const faculty = Object.values(facultyDataFiles).map((file) => file.default);
+
+const {
+  title = 'Department Gallery',
+  subtitle = 'Explore moments from our department',
+  tagline = 'Discover the essence of our department',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Brands;
+
+const metadata = {
+  title: 'Department Gallery',
+};
+---
+
+<Layout metadata={metadata}>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+    <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="faculty-container grid grid-cols-1 md:grid-cols-2 gap-1">
+    {faculty.map(member => (
+      <div class="w-full">
+        <FacultyCard {...member} class="h-full" />
+      </div>
+    ))}
+  </div>
+</WidgetWrapper>
+</Layout>

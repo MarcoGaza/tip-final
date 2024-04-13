@@ -1,2 +1,41 @@
+---
+// Import Astro components
+import Layout from '~/layouts/PageLayout.astro';
+import EventCard from '~/components/widgets/EventCard.astro'; // Assuming EventCard component will render Tailwind event cards
+import Headline from "~/components/ui/Headline.astro";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { MarqueeAnnouncement } from '../types';
 
- 
+// Import faculty data from JSON files
+const marqueeFiles = import.meta.glob('../content/marquee/*.json', { eager: true });
+
+// Process imported files to extract default exports (faculty data)
+const events = Object.values(marqueeFiles).map((file) => file.default);
+
+const {
+  title = 'Department Events',
+  subtitle = 'Stay tuned for what\'s next',
+  tagline = 'Join us and be part of our community',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as MarqueeAnnouncement;
+
+const metadata = {
+  title: 'Department Events',
+};
+---
+
+<Layout metadata={metadata}>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+    <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+    {events.map((event) => (
+      <EventCard
+        key={event.id}
+        {...event} // Spread the event properties
+      />
+    ))}
+  </WidgetWrapper>
+</Layout>

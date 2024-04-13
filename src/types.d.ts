@@ -314,7 +314,7 @@ interface LeadershipMessageProps {
     name: string;
     profilePicture: string | Image;
     bio: string;
-    vision?: string; // Optional, as not every leadership message may include a vision statement
+    vision?: string;
   };
   welcomeMessage: string;
   blockQuote?: BlockQuote;

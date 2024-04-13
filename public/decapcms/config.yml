@@ -55,28 +55,11 @@ collections:
     extension: 'json'
     format: 'json'
     fields:
-      - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
+      - { label: 'ID', name: 'id', widget: 'string', create: true, required: true }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Message', name: 'message', widget: 'text' }
-      - { label: 'Start Date', name: 'startDate', widget: 'datetime', required: false }
-      - { label: 'End Date', name: 'endDate', widget: 'datetime', required: false }
-      - { label: 'Link', name: 'link', widget: 'string', required: false }
-
-  - name: 'events'
-    label: 'Events'
-    folder: 'src/content/events'
-    create: true
-    extension: 'json'
-    format: 'json'
-    fields:
-      - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Start Date', name: 'startDate', widget: 'datetime' }
-      - { label: 'End Date', name: 'endDate', widget: 'datetime' }
-      - { label: 'Location', name: 'location', widget: 'string' }
-      - { label: 'Organizer', name: 'organizer', widget: 'string', required: false }
-      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Start Date', name: 'startDate', widget: 'datetime', required: true }
+      - { label: 'End Date', name: 'endDate', widget: 'datetime', required: true }
       - { label: 'Link', name: 'link', widget: 'string', required: false }
 
   - name: 'gallery'

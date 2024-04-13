@@ -38,7 +38,7 @@ export const headerData = {
         },
         {
           text: 'Organizations',
-          href: getPermalink('category/organizations'),
+          href: getPermalink('/organizations'),
           icon: 'flat-color-icons:conference-call',
           description: 'Explore our vibrant student organizations',
         },   
@@ -50,7 +50,7 @@ export const headerData = {
         },
         {
           text: 'Program Offerings',
-          href: getPermalink('/program'),
+          href: getPermalink('/program-offerings'),
           icon: 'flat-color-icons:library',
           description: 'Explore our diverse range of academic programs',
         },
@@ -105,7 +105,7 @@ export const footerData = {
         { text: 'About', href: getPermalink('/about-tip') },
         { text: 'Accreditations', href: getPermalink('/accreditations') },
         { text: 'Admissions', href: getPermalink('/admissions') },
-        { text: 'Program Offerings', href: getPermalink('/program') },
+        { text: 'Program Offerings', href: getPermalink('/program-offerings') },
       ],
     },
     {
@@ -123,7 +123,7 @@ export const footerData = {
         { text: 'News', href: getBlogPermalink() },
         { text: 'Awards', href: getPermalink('category/awards') },
         { text: 'Events', href: getPermalink('category/events') },
-        { text: 'Organizations', href: getPermalink('category/organizations') },
+        { text: 'Organizations', href: getPermalink('/organizations') },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },

@@ -1,0 +1,100 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+const organizations = [
+  {
+    id: 'junior-philippine-institute-of-industrial-engineers',
+    title: 'Junior Philippine Institute of Industrial Engineers',
+    description:
+      'The Junior Philippine Institute of Industrial Engineers (JPIIE) is a dynamic organization dedicated to the professional and personal development of students pursuing careers in industrial engineering.',
+    path: '/junior-philippine-institute-of-industrial-engineers',
+    image_url:
+      'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/Junior%20Philippine%20Institute%20of%20Industrial%20Engineers%20-%20TIP%20Manila%20(1).png?alt=media&token=6417d73d-fd06-44d2-b012-ef91394b74f7',
+  },
+  {
+    id: 'inhinyera',
+    title: 'Inhinyera',
+    description:
+      "Inhinyera is not just an organization; it's a movement, a beacon of empowerment illuminating the path for women in the field of engineering.",
+    link: 'Apr 13, 2024 · Organizations',
+    path: '/inhinyera',
+    image_url:
+      'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/Inhinyera%20(1).jpg?alt=media&token=e3d1b25e-f2f6-4791-ad9a-2da23d26ac32',
+  },
+  {
+    id: 'industrial-engineering-department-student-council',
+    title: 'Industrial Engineering Department Student Council',
+    description:
+      'The Industrial Engineering Department Student Council (IEDSC) is a vital organization within academic institutions, representing the collective voice and interests of students enrolled in industrial engineering programs.',
+    path: '/industrial-engineering-department-student-council',
+    image_url:
+      'https://firebasestorage.googleapis.com/v0/b/tip-ie-dev.appspot.com/o/Industrial%20Engineering%20Department%20Student%20Council%20TIP%20-%20Manila.jpg?alt=media&token=a54ad5d4-c266-4a3e-8a9d-47aa52f61bd2',
+  },
+];
+
+const {
+  title = 'Student Organizations',
+  subtitle = 'Get involved and make a difference',
+  tagline = 'Join us in our mission',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Brands;
+
+const metadata = {
+  title: title,
+};
+---
+
+<Layout metadata={metadata}>
+  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+    <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+    <div class="grid grid-cols-1 gap-6">
+      {
+        organizations.map((org, index) => (
+          <div class="bg-transparent rounded-lg shadow-md p-6 flex flex-col md:flex-row md:items-center">
+            {index % 2 === 0 ? (
+              <>
+                <div class="md:w-1/2 mr-0 md:mr-6 mb-4 md:mb-0">
+                  <img src={org.image_url} alt={org.title} class="mx-auto w-40%" />
+                </div>
+                <div class="md:w-1/2">
+                  <h3 class="text-3xl font-semibold mb-2 text-accent">{org.title}</h3>
+                  <p class="text-gray-700 mb-4">{org.description}</p>
+                  <div style="text-align: center mt-40;">
+                    <button class="btn btn-primary">
+                      <a href={org.path} class="text-white font-semibold">
+                        Read More
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="md:w-1/2">
+                  <h3 class="text-3xl font-semibold mb-2 text-accent">{org.title}</h3>
+                  <p class="text-gray-700 mb-4">{org.description}</p>
+                  <div style="text-align: center mt-40;">
+                    <button class="btn btn-primary">
+                      <a href={org.path} class="text-white font-semibold">
+                        Read More
+                      </a>
+                    </button>
+                  </div>
+                </div>
+                <div class="md:w-1/2 md:order-1 ml-0 md:ml-6">
+                  <img src={org.image_url} alt={org.title} class="mx-auto w-40%" />
+                </div>
+              </>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </WidgetWrapper>
+</Layout>
