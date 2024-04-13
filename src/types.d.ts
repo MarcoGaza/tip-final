@@ -293,6 +293,14 @@ export interface Content extends Headline, Widget {
   callToAction?: CallToAction;
 }
 
+interface GalleryItem {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+
 interface BlockQuote {
   quote: string;
   author: string;

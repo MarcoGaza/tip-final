@@ -69,7 +69,7 @@ collections:
     extension: 'json'
     format: 'json'
     fields:
-      - { label: 'ID', name: 'id', widget: 'string', required: false }
+      - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Message', name: 'message', widget: 'text' }
       - { label: 'Start Date', name: 'startDate', widget: 'datetime', required: false }
@@ -83,7 +83,7 @@ collections:
     extension: 'json'
     format: 'json'
     fields:
-      - { label: 'ID', name: 'id', widget: 'string', required: false }
+      - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Start Date', name: 'startDate', widget: 'datetime' }
@@ -92,3 +92,15 @@ collections:
       - { label: 'Organizer', name: 'organizer', widget: 'string', required: false }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
       - { label: 'Link', name: 'link', widget: 'string', required: false }
+
+  - name: 'gallery'
+    label: 'Gallery'
+    folder: 'src/content/gallery'
+    create: true
+    extension: 'json'
+    format: 'json'
+    fields:
+      - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'text', required: true }
+      - { label: 'Link', name: 'link', widget: 'string', required: true }      
