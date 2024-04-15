@@ -4,7 +4,7 @@ site:
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: AbFP5v0E8seYs9m5gJcTPOZOhjY0oikMpBzHYJ12qJM
 
 # Default SEO metadata
 metadata:
@@ -66,7 +66,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: G-7PLBTNB250
 
 ui:
   theme: 'system'

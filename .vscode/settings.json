@@ -25,7 +25,8 @@
     "latex",
     "plaintext",
     "javascript",
-    "astro"
+    "astro",
+    "tailwind",
   ],
   "spellright.parserByClass": {
     "astro": {
@@ -43,5 +44,6 @@
       "addWords": true,
       "scope": "workspace"
     }
-  }
+  },
+  "explorer.copyRelativePathSeparator": "/"
 }

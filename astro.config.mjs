@@ -47,7 +47,8 @@ export default defineConfig({
         'advertising',
         'currency-exchange',
         'voice-presentation',
-        'database'
+        'database',
+        'manager'
       ]
     }
   }), ...whenExternalScripts(() => partytown({

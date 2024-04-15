@@ -1,0 +1,111 @@
+---
+import logoImage from '../../assets/images/logo_resized_100px.png';
+
+---
+
+
+
+<div class="fixed bottom-0 inset-x-0 z-[60] bg-black">
+  <!-- Card -->
+  <div class="p-4 sm:p-6 bg-black border border-gray-200 shadow-sm dark:bg-gray-900 dark:border-gray-900">
+      <div class="max-w-[85rem] mx-auto">
+          <div class="grid lg:grid-cols-4 xl:grid-cols-5 gap-5 items-center">
+            <div class="col-span-1 flex flex-col items-center justify-center">
+              <a href="/" class="flex flex-col items-center justify-center">
+                  <img src={logoImage.src} alt="Technological Institute of the Philippines" class="h-24" style="object-fit: contain;" />
+              </a>
+          </div>
+              <!-- End Col -->
+
+              <div class="lg:col-span-3">
+                  <h2 class="text-lg font-semibold text-slate-100 dark:text-white">
+                      We use cookies
+                  </h2>
+                  <p class="mt-2 text-sm text-gray-300 dark:text-gray-400">
+                      We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.
+                  </p>
+                  <div class="mt-5 grid md:flex md:items-center gap-3">
+                      <div class="flex items-center justify-between md:justify-start w-full">
+                          <label for="hs-cookies-necessary" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Necessary</label>
+                          <input type="checkbox" id="hs-cookies-necessary" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400" checked>
+                      </div>
+
+                      <div class="flex items-center justify-between md:justify-start w-full">
+                          <label for="hs-cookies-preferences" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Preferences</label>
+                          <input type="checkbox" id="hs-cookies-preferences" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                      </div>
+
+                      <div class="flex items-center justify-between md:justify-start w-full">
+                          <label for="hs-cookies-statistics" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Statistics</label>
+                          <input type="checkbox" id="hs-cookies-statistics" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                      </div>
+
+                      <div class="flex items-center justify-between md:justify-start w-full">
+                          <label for="hs-cookies-marketing" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Marketing</label>
+                          <input type="checkbox" id="hs-cookies-marketing" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                      </div>
+                  </div>
+              </div>
+              <!-- End Col -->
+
+              <div class="col-span-full col-start-2 xl:col-start-5 xl:col-span-1">
+                  <div class="grid sm:grid-cols-3 xl:grid-cols-1 gap-y-2 sm:gap-y-0 sm:gap-x-5 xl:gap-y-2 xl:gap-x-0">
+                      <button id="allowAll" type="button" class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-primary text-white hover:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none">
+                          Allow all
+                      </button>
+                      <button id="allowSelection" type="button" class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-primary text-primary hover:border-primary hover:text-primary disabled:opacity-50 disabled:pointer-events-none dark:border-primary dark:text-primary dark:hover:text-primary dark:hover:border-primary">
+                          Allow selection
+                      </button>
+                      <button id="rejectAll" type="button" class="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-primary bg-white text-primary shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-primary dark:text-white dark:hover:bg-gray-900">
+                          Reject all
+                      </button>
+                  </div>
+              </div>
+              <!-- End Col -->
+          </div>
+      </div>
+  </div>
+  <!-- End Card -->
+</div>
+
+
+<script is:inline>
+  function setCookie(name, value, days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = "; expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+
+  function removeCookieConsent() {
+    document.querySelector('.fixed.bottom-0').remove();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('allowAll').addEventListener('click', function () {
+      ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
+        setCookie(cookie, 'true', 365);
+      });
+      removeCookieConsent();
+    });
+
+    document.getElementById('rejectAll').addEventListener('click', function () {
+      ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
+        setCookie(cookie, 'false', 365);
+      });
+      removeCookieConsent();
+    });
+
+    document.getElementById('allowSelection').addEventListener('click', function () {
+      ['necessary', 'preferences', 'statistics', 'marketing'].forEach(type => {
+        let isChecked = document.getElementById('hs-cookies-' + type).checked;
+        setCookie(type + 'Cookies', isChecked, 365);
+      });
+      removeCookieConsent();
+    });
+  });
+</script>
+
+
+  
+  

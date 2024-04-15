@@ -1,6 +1,6 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from "~/components/ui/Headline.astro";
+import Headline from '~/components/ui/Headline.astro';
 import type { LeadershipMessageProps } from '~/types';
 
 const {
@@ -15,18 +15,14 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props as LeadershipMessageProps;
-
 ---
 
-
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ""}`} bg={bg}>
-  <Headline
-    title={title}
-    subtitle={leader.bio}
-    tagline={leader.vision}
-    classes={classes?.headline}
-  />
-  <section id={id} class={`flex flex-col lg:flex-row items-center lg:space-x-4 my-8 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={leader.bio} tagline={leader.vision} classes={classes?.headline} />
+  <section
+    id={id}
+    class={`flex flex-col lg:flex-row items-center lg:space-x-4 my-8 ${isReversed ? 'lg:flex-row-reverse' : ''}`}
+  >
     <div class="w-full lg:w-1/2">
       <div class="flex-1 flex justify-center items-center">
         <img

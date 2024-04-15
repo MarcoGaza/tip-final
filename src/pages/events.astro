@@ -1,16 +1,24 @@
 ---
 // Import Astro components
 import Layout from '~/layouts/PageLayout.astro';
-import EventCard from '~/components/widgets/EventCard.astro'; // Assuming EventCard component will render Tailwind event cards
-import Headline from "~/components/ui/Headline.astro";
+import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { MarqueeAnnouncement } from '../types';
+import CalendarComponent from '~/components/widgets/CalendarComponent.jsx';
 
-// Import faculty data from JSON files
 const marqueeFiles = import.meta.glob('../content/marquee/*.json', { eager: true });
 
-// Process imported files to extract default exports (faculty data)
-const events = Object.values(marqueeFiles).map((file) => file.default);
+// Process imported files to extract default exports (events data)
+const events = Object.values(marqueeFiles).map((file) => ({
+  id: file.default.id,
+  title: file.default.title,
+  start: file.default.startDate,
+  end: file.default.endDate,
+  url: file.default.link,
+  extendedProps: {
+    message: file.default.message
+  }
+}));
 
 const {
   title = 'Department Events',
@@ -31,11 +39,8 @@ const metadata = {
   <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
     <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-    {events.map((event) => (
-      <EventCard
-        key={event.id}
-        {...event} // Spread the event properties
-      />
-    ))}
+    {/* Render the calendar component as a client-only component */}
+    <CalendarComponent client:load client:idle events={events} />
+
   </WidgetWrapper>
 </Layout>

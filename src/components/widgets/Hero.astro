@@ -25,11 +25,12 @@ const {
 ---
 
 
+
 <section class="relative px-4 sm:px-8 pb-20 md:pt-36 sm:pt-20 bg-transparent md:-mt-[5.5rem] z-10 h-screen" {...id ? { id } : {}}>
   <canvas id="maze-canvas" class="inset-0 z-0" aria-hidden="true"></canvas>
 
   <div class="container mx-auto"> 
-      <div class="glass relative px-10 py-10 flex flex-col items-center justify-center bg-gray-300/50 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg overflow-x-hidden overflow-y-auto">
+      <div class="glass relative px-10 py-10 flex flex-col items-center justify-center bg-gray-100/10 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg overflow-x-hidden overflow-y-auto">
           <div class="text-center max-w-5xl mx-auto">
         {
           tagline && (
@@ -73,6 +74,57 @@ const {
 
 <script>
   "use strict";
+  window.addEventListener("load", function () {
+
+  const canvas = document.getElementById("maze-canvas");
+  const ctx = canvas.getContext("2d");
+  let currentImageIndex = 0;
+  const images = [
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero%20(1).jpg?alt=media&token=5c794b13-9c52-4bf4-ba23-f336f8456fce',
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/img%20(1).jfif?alt=media&token=6d065fc7-904e-4ae0-97f5-1ae143a052b3',
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/img%20(2).jpg?alt=media&token=d7548a3e-fe4c-4ea3-a1c8-247d2e50298c',
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero-ie%20(1).jpg?alt=media&token=b1f8f3ae-5715-4e03-a112-55fa49fda3ea'
+  ];
+
+ function loadImage() {
+  if (currentImageIndex >= images.length) currentImageIndex = 0;
+  const img = new Image();
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    drawHexagon(); // Ensure this function is defined or modify as necessary
+    setTimeout(removeHexagonsSequentially, 10000);
+  };
+  img.src = images[currentImageIndex];
+}
+
+
+  // Adjust canvas size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  loadImage();
+});
+
+function removeHexagonsSequentially() {
+    let flattenedCells = y.flat();
+    let shuffledCells = i(flattenedCells);
+
+    function removeNextHexagon() {
+      if (shuffledCells.length > 0) {
+        let cell = shuffledCells.pop();
+        cell.clearHexagon();
+        requestAnimationFrame(removeNextHexagon);
+      } else {
+        currentImageIndex++;
+        loadImage();
+      }
+    }
+
+    removeNextHexagon();
+  }
+
+
 window.addEventListener("load", function () {
   function t(t, e) {
     return void 0 === e && ((e = t), (t = 0)), M(t + (e - t) * g());
@@ -200,7 +252,7 @@ window.addEventListener("load", function () {
   function l() {
     b.push();
   }
-  const a = 10;
+  const a = 5;
   let u,
     d,
     k,
@@ -346,7 +398,19 @@ window.addEventListener("load", function () {
             ({ kx: o, ky: c } = r)),
           !(o < 0 || c < 0 || o >= v || c >= p) && y[c][o]
         );
-      });
+      }),(C.prototype.clearHexagon = function () {
+  let ctx = d; // Assuming d is the canvas 2D context
+  ctx.globalCompositeOperation = 'destination-out'; // Set to remove existing drawing
+  ctx.beginPath();
+  ctx.moveTo(this.vertices[0][0], this.vertices[0][1]);
+  this.vertices.forEach((vertex, index) => {
+    if (index > 0) ctx.lineTo(vertex[0], vertex[1]);
+  });
+  ctx.closePath();
+  ctx.fill();
+  ctx.globalCompositeOperation = 'source-over'; // Reset the composite operation
+}
+)
   }
   (n.prototype.mark = function () {
     (this.cell.explored = !0), this.cell.drawHexagon(this.hue);
@@ -394,17 +458,10 @@ window.addEventListener("load", function () {
     l(),
     window.requestAnimationFrame(I);
     
+    
 });
 
 
-window.addEventListener("DOMContentLoaded", function () {
-  const glassElement = document.querySelector(".glass");
-  glassElement.addEventListener("mouseover", function () {
-    glassElement.classList.add("glass-hover");
-  });
-  glassElement.addEventListener("mouseout", function () {
-    glassElement.classList.remove("glass-hover");
-  });
-});
+
 
 </script>

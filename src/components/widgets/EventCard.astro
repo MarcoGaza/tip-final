@@ -3,10 +3,10 @@ const { id, title, message, startDate, endDate, link } = Astro.props;
 ---
 
 
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
+<div class="bg-transparent max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
   <div class="p-4 flex items-center">
 
-    <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center">
+    <div class="w-32 min-w-32 pr-4 bg-primary p-2 rounded-lg text-center">
       <p class="text-4xl font-bold text-white">
         {new Date(startDate).toLocaleString('default', { day: 'numeric' })}
       </p>
@@ -16,7 +16,7 @@ const { id, title, message, startDate, endDate, link } = Astro.props;
     </div>
 
     <div class="ml-4">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+      <div class="uppercase tracking-wide text-sm text-secondary font-semibold">
         {new Date(startDate).toLocaleString('default', { hour: 'numeric', minute: '2-digit'})} - 
         {new Date(endDate).toLocaleString('default', { hour: 'numeric', minute: '2-digit'})}
       </div>
