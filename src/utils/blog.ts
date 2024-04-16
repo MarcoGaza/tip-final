@@ -55,10 +55,6 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     author,
     draft = false,
     metadata = {},
-    startDate: rawStartDate,
-    endDate: rawEndDate,
-    location,
-    organizer,
   } = data;
 
   const slug = cleanSlug(rawSlug);
@@ -66,8 +62,6 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
-  const startDate = rawStartDate ? new Date(rawStartDate) : undefined; // Parse startDate
-  const endDate = rawEndDate ? new Date(rawEndDate) : undefined; // Parse endDate
 
   return {
     id,
@@ -85,10 +79,6 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     metadata,
     Content,
     readingTime: remarkPluginFrontmatter?.readingTime,
-    startDate, // Include parsed startDate
-    endDate, // Include parsed endDate
-    location, // Include location directly
-    organizer, // Include organizer directly
   };
 };
 

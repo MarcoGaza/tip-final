@@ -72,4 +72,9 @@ collections:
       - { label: 'ID', name: 'id', widget: 'string', create: true, required: false }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'text', required: true }
-      - { label: 'Link', name: 'link', widget: 'string', required: true }      
+      - label: 'Image'
+        name: 'image' 
+        widget: 'image'
+        media_folder: '/src/assets/images' 
+        public_folder: '/_astro'  
+      

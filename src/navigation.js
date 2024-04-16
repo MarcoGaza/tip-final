@@ -9,7 +9,7 @@ export const headerData = {
         {
           text: 'Industrial Engineering Department',
           href: getPermalink('/industrial-engineering'),
-          icon: 'flat-color-icons:engineering',
+          icon: 'flat-color-icons:org-unit',
           description: 'Excellence in Industrial Engineering Department',
         },
         {
@@ -132,7 +132,6 @@ export const footerData = {
       links: [{ text: 'Privacy Policy', href: getPermalink('/privacy') }],
     },
   ],
-  secondaryLinks: [{ text: 'Privacy Policy', href: getPermalink('/privacy') }],
   socialLinks: [
     {
       ariaLabel: 'Industrial Engineering Department - Student Council',

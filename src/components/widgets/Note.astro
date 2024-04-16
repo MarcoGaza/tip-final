@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<section class="holographic-section bg-gray-200 dark:bg-slate-800 not-prose mt-[-32] z-70">
+<section class="hologram bg-gray-200 dark:bg-slate-800 not-prose z-70">
   <div class="max-w-6xl mx-auto px-4 sm:px-2 py-2 text-center font-medium">
     <span class="text-large">
       <Icon name="tabler:info-square" class="w-5 h-5 inline-block align-text-bottom" /> TIP Mantra:</span>
@@ -11,26 +11,4 @@ import { Icon } from 'astro-icon/components';
 </section>
 
 
-<style>
-.holographic-section {
-  font-size: 1.5rem;
-  font-weight: 700; /* Adjust to make all text within the section equal and larger */
-}
 
-.holographic-section * {
-  background: linear-gradient(45deg, #e6e6e6, #ffffff, #e6e6e6, #cccccc, #e6e6e6, #ffffff, #cccccc);
-  background-size: 200% 200%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: MoveGradient 5s ease infinite;
-}
-
-@keyframes MoveGradient {
-  0% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-</style>

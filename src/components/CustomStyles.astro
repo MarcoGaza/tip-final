@@ -3,8 +3,8 @@
 
 <style is:inline is:global>
   :root {
-    --aw-font-sans: 'Nunito', sans-serif;
-    --aw-font-serif: 'Literata', serif;
+    --aw-font-sans: 'Poppins', sans-serif;
+    --aw-font-serif: 'Poppins', serif;
     --aw-font-heading: 'Poppins', sans-serif;
 
     --aw-font-weight-heading: 300;
@@ -27,12 +27,12 @@
   }
 
   .dark {
-    --aw-font-sans: 'Nunito', sans-serif;
-    --aw-font-serif: 'Literata', serif;
+    --aw-font-sans: 'Poppins', sans-serif;
+    --aw-font-serif: 'Poppins', serif;
     --aw-font-heading: 'Poppins', sans-serif;
 
-    --aw-font-weight-heading: 300; /* Thinner weight for dark theme headers */
-    --aw-font-weight-body: 300; /* Standard weight for dark theme body */
+    --aw-font-weight-heading: 300;
+    --aw-font-weight-body: 300;
 
     --aw-color-primary: rgb(255 197 9);
     --aw-color-secondary: rgb(33 54 99);
@@ -43,16 +43,16 @@
     --aw-color-text-muted: rgb(229 236 246 / 66%);
     --aw-color-bg-page: var(--aw-color-bg-page-dark);
     ::selection {
-      background-color: #666666; /* Dark gray */
+      background-color: #666666;
       color: snow;
     }
   }
 
-  /* Applying font weights */
+
   h1, h2, h3, h4, h5, h6 {
     font-weight: var(--aw-font-weight-heading);
   }
-  body, p, li, a, input, button { /* Standard elements for body text */
+  body, p, li, a, input, button {
     font-weight: var(--aw-font-weight-body);
   }
 </style>

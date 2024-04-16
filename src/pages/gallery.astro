@@ -27,39 +27,21 @@ const metadata = {
 };
 ---
 
-
 <style>
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  padding: 16px;
-}
-
-@media (max-width: 768px) {
-  .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-grid {
-      grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-
+  /* You might need to adjust or remove .gallery-grid rules */
+  .gallery-grid__column { 
+    margin-bottom: 16px; /* Example for some spacing */
+  } 
 </style>
 
 
 <Layout metadata={metadata}>
   <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
     <Headline title={title} subtitle={subtitle} tagline={tagline} />
-
     <GalleryModal client:load items={items} />
-
   </WidgetWrapper>
 </Layout>
 
 
+
+//use masonry in displaying the gallery here. 

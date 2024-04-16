@@ -1,203 +1,85 @@
----
-import Button from '~/components/ui/Button.astro';
-import type { CallToAction } from '~/types';
+'use strict';
 
-export interface Props {
-  id?: string;
-  title?: string;
-  subtitle?: string;
-  tagline?: string;
-  content?: string;
-  actions?: string | CallToAction[];
-  image?: string | any; // TODO: find HTMLElementProps
-}
+//segment1
+window.addEventListener('load', function () {
+  const images = [
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero%20(1).jpg?alt=media&token=5c794b13-9c52-4bf4-ba23-f336f8456fce',
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/img%20(1).jfif?alt=media&token=6d065fc7-904e-4ae0-97f5-1ae143a052b3',
+    'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero-ie%20(1).jpg?alt=media&token=b1f8f3ae-5715-4e03-a112-55fa49fda3ea',
+  ];
+  let currentImageIndex = 0;
+  let u = document.getElementById('maze-canvas'),
+    d = u.getContext('2d');
+  u.style.position = 'absolute';
+  document.body.appendChild(u);
+  u.width = window.innerWidth;
+  u.height = window.innerHeight;
 
-const {
-  id,
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline,
-  actions = await Astro.slots.render('actions'),
-} = Astro.props;
----
-
-<section
-  class="relative px-4 sm:px-8 pb-20 md:pt-36 sm:pt-20 bg-transparent md:-mt-[5.5rem] z-10 h-screen"
-  {...id ? { id } : {}}
->
-  <canvas id="maze-canvas" class="inset-0 z-0" aria-hidden="true"></canvas>
-
-  <div class="container mx-auto">
-    <div
-      class="glass relative px-10 py-10 flex flex-col items-center justify-center bg-gray-100/10 backdrop-blur-lg border border-gray-200/50 shadow-lg rounded-lg overflow-x-hidden overflow-y-auto"
-    >
-      <div class="text-center max-w-5xl mx-auto">
-        {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class="text-2xl md:text-3xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full bg-dark text-white sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  'use strict';
-  window.addEventListener('load', function () {
-    const canvas = document.getElementById('maze-canvas');
-    const ctx = canvas.getContext('2d');
-    let currentImageIndex = 0;
-    const images = [
-      'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero%20(1).jpg?alt=media&token=5c794b13-9c52-4bf4-ba23-f336f8456fce',
-      'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/img%20(1).jfif?alt=media&token=6d065fc7-904e-4ae0-97f5-1ae143a052b3',
-      'https://firebasestorage.googleapis.com/v0/b/cj-001.appspot.com/o/hero-ie%20(1).jpg?alt=media&token=b1f8f3ae-5715-4e03-a112-55fa49fda3ea',
-    ];
-
-
-    let imgList = [];
-
-function preloadImages(images, callback) {
-  let loadedCounter = 0;
-  images.forEach((url) => {
-    const img = new Image();
-    img.onload = () => {
-      imgList.push(img);
-      loadedCounter++;
-      if (loadedCounter === images.length) callback();
-    };
-    img.onerror = () => console.error('Failed to load image: ' + img.src);
-    img.src = url;
-  });
-}
-
-
-
-    function loadImage() {
-      if (currentImageIndex >= images.length) currentImageIndex = 0;
+  function preloadImages(urls, callback) {
+    let loadedCounter = 0;
+    const imgList = [];
+    urls.forEach((url) => {
       const img = new Image();
       img.onload = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        imgList.push(img);
+        loadedCounter++;
+        if (loadedCounter === urls.length) callback(imgList);
       };
-      img.src = images[currentImageIndex];
-    }
+      img.onerror = () => console.error('Failed to load image: ' + img.src);
+      img.src = url;
+    });
+  }
 
-
-    function removeHexagonByIndex(index) {
-    if (!y || !y.length) return; // Check if 'y' is defined and non-empty
-    let row = Math.floor(index / v);
-    let col = index % v;
-    if (row >= y.length || col >= y[row].length) return; // Corrected to access y[row].length
-    let hexagon = y[row][col];
-    if (hexagon && hexagon.vertices) {
-        let e = ctx; // Ensure 'ctx' is the canvas context
-        e.beginPath();
-        hexagon.vertices.forEach((vertex, idx) => {
-            e.lineTo(vertex[0], vertex[1]);
-        });
-        e.closePath();
-        e.clearRect(hexagon.vertices[0][0], hexagon.vertices[0][1], hexagon.width, hexagon.height); // Clearing the area
-    }
-}
-
-
-function removeAllHexagonsBackward() {
-    if (!y || !y.length) return;
-    let totalHexagons = y.reduce((acc, row) => acc + row.length, 0);
-    let currentIndex = totalHexagons - 1;
-    const startTime = performance.now();
-    const duration = 6000; // Total duration in milliseconds
-
-    function processBatch() {
-        let now = performance.now();
-        let elapsedTime = now - startTime;
-
-        if (elapsedTime > duration) {
-            console.log('Timeout reached, stopping removal');
-            return; // Stop if 6 seconds have passed
-        }
-
-        let batchLimit = Math.max(20, Math.ceil((totalHexagons / duration) * 16.7)); // Calculate batch size based on desired frame rate (about 60fps, so 16.7ms per frame)
-
-        for (let i = 0; i < batchLimit && currentIndex >= 0; i++, currentIndex--) {
-            removeHexagonByIndex(currentIndex);
-        }
-
-        if (currentIndex >= 0) {
-            requestAnimationFrame(processBatch);
-        } else {
-            console.log('All hexagons removed');
-        }
-    }
-
-    requestAnimationFrame(processBatch);
-}
+  function loadImageAndMaze() {
+    clearCanvas();
+    console.log('Loading image:', images[currentImageIndex]);
+    const img = new Image();
+    img.onload = function () {
+      console.log('Image loaded:', img.src);
+      d.clearRect(0, 0, u.width, u.height); // Clear the canvas
+      d.drawImage(img, 0, 0, u.width, u.height); // Draw the image
+      createMaze(); // Draw the maze on top of the image
+    };
+    img.onerror = function () {
+      console.error('Error loading the image');
+    };
+    img.src = images[currentImageIndex];
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
 
 
 
 
-function assignHexagonIndexes() {
-    for (let row = 0; row < y.length; row++) {
-        for (let col = 0; col < y[row].length; col++) {
-            let hexagon = y[row][col];
-            hexagon.index = row * v + col;  // Assign unique index based on grid position
-        }
-    }
-}
-
-
+  function createMaze() {
+    //segment4
     function t(t, e) {
       return void 0 === e && ((e = t), (t = 0)), M(t + (e - t) * g());
     }
+
+    //segment5
     function e(t) {
       let e = Array.from(new Array(t).keys());
       return i(e);
     }
+
+    //segment6
     function i(e) {
       let i, s;
       for (let h = e.length - 1; h >= 1; --h) (i = t(0, h + 1)), (s = e[h]), (e[h] = e[i]), (e[i] = s);
       return e;
     }
+
+    //segment7
     function s() {
-    let index = 0; // Initialize the index
-    y = [];
-    for (let e = 0; e < p; ++e) {
+      let t;
+      y = [];
+      for (let e = 0; e < p; ++e) {
         y[e] = [];
-        for (let i = 0; i < v; ++i) {
-            y[e][i] = new C(i, e, index++); // Create new hexagon with indexing
-        }
+        for (let i = 0; i < v; ++i) (t = new C(i, e)), (y[e][i] = t);
+      }
     }
-}
+
+    //segment8
     function h() {
       function t(t) {
         let e, i;
@@ -205,6 +87,7 @@ function assignHexagonIndexes() {
         for (let s = 0; s < 6; ++s)
           (e = t.neighbour(s)), !1 !== e && ((i = c.indexOf(e)), -1 != i && (c.splice(i, 1), l.push(e)));
       }
+
       let s,
         h,
         n,
@@ -243,9 +126,15 @@ function assignHexagonIndexes() {
           t(s);
       }
     }
+
+    //segment9
+
     function n(t, e) {
       (this.cell = t), (this.hue = e), this.mark();
     }
+
+    //segment10
+
     function r(e, i) {
       void 0 === e && ((e = k / 2), (i = f / 2));
       let s = C.whichHexagon(e, i);
@@ -260,6 +149,9 @@ function assignHexagonIndexes() {
         !0)
       );
     }
+
+    //segment11
+
     function o() {
       (k = window.innerWidth), (f = window.innerHeight);
       let t = E((window.innerWidth - k) / 2, 0),
@@ -291,12 +183,15 @@ function assignHexagonIndexes() {
           !0
         );
     }
-    function c(t: { target: { tagName: string; }; clientX: any; clientY: any; }) {
-      'CANVAS' == t.target.tagName && (b.push(), (w.x = t.clientX), (w.y = t.clientY));
-    }
+
+    //segment13
+
     function l() {
       b.push();
     }
+
+    //segment14
+
     const a = 5;
     let u,
       d,
@@ -321,6 +216,9 @@ function assignHexagonIndexes() {
       S = P / 2;
     Math.PI;
     let C, I;
+
+    //segment15
+
     {
       let t, e, i;
       (C = function (t, e) {
@@ -440,11 +338,25 @@ function assignHexagonIndexes() {
               ({ kx: o, ky: c } = r)),
             !(o < 0 || c < 0 || o >= v || c >= p) && y[c][o]
           );
-        })
+        }),
+        (C.prototype.clearHexagon = function () {
+          let ctx = d; // Assuming d is the canvas 2D context
+          ctx.globalCompositeOperation = 'destination-out'; // Set to remove existing drawing
+          ctx.beginPath();
+          ctx.moveTo(this.vertices[0][0], this.vertices[0][1]);
+          this.vertices.forEach((vertex, index) => {
+            if (index > 0) ctx.lineTo(vertex[0], vertex[1]);
+          });
+          ctx.closePath();
+          ctx.fill();
+          ctx.globalCompositeOperation = 'source-over'; // Reset the composite operation
+        });
     }
+
     (n.prototype.mark = function () {
       (this.cell.explored = !0), this.cell.drawHexagon(this.hue);
     }),
+      //segment17
       (n.prototype.explore = function () {
         let i,
           s,
@@ -458,6 +370,9 @@ function assignHexagonIndexes() {
         }
         return !!i && ((this.cell = i), this.mark(), !0);
       });
+
+    //segment18
+
     {
       let t = 0;
       I = function (e) {
@@ -484,24 +399,25 @@ function assignHexagonIndexes() {
         }
       };
     }
-    u = document.getElementById('maze-canvas'),
-    u.style.position = 'absolute',
-    document.body.appendChild(u),
-    d = u.getContext('2d'),
-    u.setAttribute('title', 'click me'),
-    window.addEventListener('click', c),
 
-    // Preload images and load the initial image
-    preloadImages(images, function() {
-        loadImage();
-    });
+    //segment19
+    u = document.getElementById('mazeCanvas');
+    d = u.getContext('2d');
+    u.style.position = 'absolute';
+    document.body.appendChild(u);
+    l();
 
-    // Initialize hexagons and start animation frame
-    s(), // Initialize the grid of hexagons
-    assignHexagonIndexes(), // Assign indexes to each hexagon
-    window.requestAnimationFrame(I), 
+    I();
+  }
 
-    // Set a delay of 10 seconds to remove all hexagons
-    setTimeout(removeAllHexagonsBackward, 10000);
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  preloadImages(images, (loadedImages) => {
+    loadImageAndMaze(loadedImages);
+    setInterval(() => {
+      loadImageAndMaze(loadedImages);
+    }, 10000); // Change images every 10 seconds
+  });
 });
-</script>

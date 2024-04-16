@@ -3,11 +3,9 @@ import logoImage from '../../assets/images/logo_resized_100px.png';
 
 ---
 
-
-
-<div class="fixed bottom-0 inset-x-0 z-[60] bg-black">
+<div id="ConsentDisplay" class="fixed bottom-0 inset-x-0 z-[60] bg-black">
   <!-- Card -->
-  <div class="p-4 sm:p-6 bg-black border border-gray-200 shadow-sm dark:bg-gray-900 dark:border-gray-900">
+  <div class="p-4 sm:p-6 bg-black border border-black shadow-sm dark:bg-gray-900 dark:border-gray-900">
       <div class="max-w-[85rem] mx-auto">
           <div class="grid lg:grid-cols-4 xl:grid-cols-5 gap-5 items-center">
             <div class="col-span-1 flex flex-col items-center justify-center">
@@ -27,22 +25,22 @@ import logoImage from '../../assets/images/logo_resized_100px.png';
                   <div class="mt-5 grid md:flex md:items-center gap-3">
                       <div class="flex items-center justify-between md:justify-start w-full">
                           <label for="hs-cookies-necessary" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Necessary</label>
-                          <input type="checkbox" id="hs-cookies-necessary" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400" checked>
+                          <input type="checkbox" id="hs-cookies-necessary" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400" checked>
                       </div>
 
                       <div class="flex items-center justify-between md:justify-start w-full">
                           <label for="hs-cookies-preferences" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Preferences</label>
-                          <input type="checkbox" id="hs-cookies-preferences" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                          <input type="checkbox" id="hs-cookies-preferences" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
                       </div>
 
                       <div class="flex items-center justify-between md:justify-start w-full">
                           <label for="hs-cookies-statistics" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Statistics</label>
-                          <input type="checkbox" id="hs-cookies-statistics" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                          <input type="checkbox" id="hs-cookies-statistics" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
                       </div>
 
                       <div class="flex items-center justify-between md:justify-start w-full">
                           <label for="hs-cookies-marketing" class="md:order-2 text-sm text-gray-200 md:ms-3 dark:text-gray-400">Marketing</label>
-                          <input type="checkbox" id="hs-cookies-marketing" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-gray-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
+                          <input type="checkbox" id="hs-cookies-marketing" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-600 focus:ring-gray-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-900 dark:checked:bg-gray-600 dark:focus:ring-offset-gray-800 before:inline-block before:size-6 before:bg-white checked:before:bg-gray-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-gray-400">
                       </div>
                   </div>
               </div>
@@ -70,40 +68,56 @@ import logoImage from '../../assets/images/logo_resized_100px.png';
 
 
 <script is:inline>
-  function setCookie(name, value, days) {
-    let date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    let expires = "; expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + expires + "; path=/";
+function setCookie(name, value, days) {
+  let date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  let expires = "; expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(name) {
+  let nameEQ = name + "=";
+  let ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i].trim();
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
   }
+  return null;
+}
 
-  function removeCookieConsent() {
-    document.querySelector('.fixed.bottom-0').remove();
+function hideConsentUI() {
+  let consentUI = document.getElementById('ConsentDisplay');
+  if (consentUI && (getCookie('necessaryCookies') || getCookie('preferencesCookies') || getCookie('statisticsCookies') || getCookie('marketingCookies'))) {
+    consentUI.style.display = 'none';
   }
+}
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('allowAll').addEventListener('click', function () {
-      ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
-        setCookie(cookie, 'true', 365);
-      });
-      removeCookieConsent();
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  hideConsentUI();  // Hide the consent UI if cookies are already set
 
-    document.getElementById('rejectAll').addEventListener('click', function () {
-      ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
-        setCookie(cookie, 'false', 365);
-      });
-      removeCookieConsent();
+  document.getElementById('allowAll').addEventListener('click', function() {
+    ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
+      setCookie(cookie, 'true', 365);
     });
-
-    document.getElementById('allowSelection').addEventListener('click', function () {
-      ['necessary', 'preferences', 'statistics', 'marketing'].forEach(type => {
-        let isChecked = document.getElementById('hs-cookies-' + type).checked;
-        setCookie(type + 'Cookies', isChecked, 365);
-      });
-      removeCookieConsent();
-    });
+    hideConsentUI();
   });
+
+  document.getElementById('rejectAll').addEventListener('click', function() {
+    ['necessaryCookies', 'preferencesCookies', 'statisticsCookies', 'marketingCookies'].forEach(cookie => {
+      setCookie(cookie, 'false', 365);
+    });
+    hideConsentUI();
+  });
+
+  document.getElementById('allowSelection').addEventListener('click', function() {
+    ['necessary', 'preferences', 'statistics', 'marketing'].forEach(type => {
+      let isChecked = document.getElementById('hs-cookies-' + type).checked;
+      setCookie(type + 'Cookies', isChecked ? 'true' : 'false', 365);
+    });
+    hideConsentUI();
+  });
+});
+
 </script>
 
 
