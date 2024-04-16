@@ -1,6 +1,7 @@
 {
-    "id": "16",
-    "title": "Image 16",
-    "description": "Description for Image 16",
-    "link": "https://storage.googleapis.com/cj-001.appspot.com/gallery/gallery-img-16.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-ga4x3%40cj-001.iam.gserviceaccount.com%2F20240415%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240415T002057Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=34b693f17ed8f4fcef116c924868a9620cb0ba6cc14b13db8ea2fa332f1f706be9db37fb96c7239c974c70b4eb6b9860eb4292358fed7140fa1d7fe3d5962ee14c4d68ac506a67f95d2268e9fd94aaa9019cf751c804737a88fb27c48807bb63339e84b87cd80a2b30098be09db7f0d05db34b96bd31e41ae0dc3ecd3c71f86f3ce1e92c58cd0ae523bdb2ee92c9f0155eb587ef55ce6bcd709ecf1a96852f2174a1843053d7cffa5dbe838bafef201d341b5045788491d0f609fafb7dfbf29b25e5f9a7fc11caf3d4e87ae0549a5e75ed54176466c53ced294785a0dca922191a3fee58a05de038b0f9e165afcec67f4e1a7e963773dbbd66e8e7b0313b1d6c"
+  "id": "16",
+  "title": "Image 16",
+  "description": "Description for Image 16",
+  "link": "https://storage.googleapis.com/cj-001.appspot.com/gallery/gallery-img-16.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-ga4x3%40cj-001.iam.gserviceaccount.com%2F20240415%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240415T002057Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=34b693f17ed8f4fcef116c924868a9620cb0ba6cc14b13db8ea2fa332f1f706be9db37fb96c7239c974c70b4eb6b9860eb4292358fed7140fa1d7fe3d5962ee14c4d68ac506a67f95d2268e9fd94aaa9019cf751c804737a88fb27c48807bb63339e84b87cd80a2b30098be09db7f0d05db34b96bd31e41ae0dc3ecd3c71f86f3ce1e92c58cd0ae523bdb2ee92c9f0155eb587ef55ce6bcd709ecf1a96852f2174a1843053d7cffa5dbe838bafef201d341b5045788491d0f609fafb7dfbf29b25e5f9a7fc11caf3d4e87ae0549a5e75ed54176466c53ced294785a0dca922191a3fee58a05de038b0f9e165afcec67f4e1a7e963773dbbd66e8e7b0313b1d6c",
+  "image": "/_astro/courses.png"
 }
