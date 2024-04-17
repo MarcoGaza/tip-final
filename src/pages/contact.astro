@@ -1,78 +1,124 @@
 ---
+// Import your components and packages here
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import pkg from 'cookie-cutter';
 
+const { createCookie, getCookie } = pkg;
 const metadata = {
   title: 'Contact',
 };
+const mapURL = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15445.248157796455!2d120.9862854!3d14.5996644!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca01052aaf27%3A0xa043ef7fbf26b1f9!2sTechnological%20Institute%20of%20the%20Philippines!5e0!3m2!1sen!2sus!4v1652765854742!5m2!1sen!2sus";
 ---
-
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
   <HeroText tagline="Contact" title="Let's Connect!" />
-
   <ContactUs
     title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, you can drop by at TIP- Manila Campus for more info."
+    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking for right there! If not, you can drop by at TIP-Manila Campus for more info."
     inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
+      { type: 'text', name: 'name', label: 'Name' },
+      { type: 'email', name: 'email', label: 'Email' },
+      { type: 'text', name: 'message', label: 'Message' },
     ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
+    disclaimer={{ label: 'By submitting this contact form, you acknowledge and agree to the collection of your personal information.' }}
     description="Our support team typically responds within 24 business hours."
   />
 
-  <!-- Features2 Widget ************** -->
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'Admissions Office ',
-        description: ` Email: admissions.manila@tip.edu.ph,  Mobile number: 09171059581 Tel. no. 87339117, 87362580`,
-      },
-      {
-        title: 'School Registrar',
-        description:
-          'Email them through: registrar.manila@tip.edu.ph',
-      },
-      {
-        title: 'Industrial Engineering Department',
-        description:
-          'Email them through: ie-dsc.manila@tip.edu.ph.',
-      },
-      {
-        title: 'Phone',
-        description: 'Tel. No: (+632) 8733-9117',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'info@tip.edu.ph',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Locations',
-        description: '363 P. Casal St., Quiapo, Manila1338 Arlegui St., Quiapo, Manila ',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        if (!form) {
+            console.error('The form element was not found on the page.');
+            return;
+        }
+    
+        const endpointUrl = 'https://script.google.com/macros/s/AKfycbxVj9hYMQiTqaNchrDZVb1-1Oa4K4eWkn3VJoA_LqdYLpIYYF3cYzIrMABR1F1OR26u8g/exec';
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const nameInput = document.querySelector('input[name="name"]');
+            const emailInput = document.querySelector('input[name="email"]');
+            const messageInput = document.querySelector('input[name="message"]');
+    
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+    
+            if (!name) {
+                alert('Name is required.');
+                return;
+            }
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Please provide a valid email address.');
+                return;
+            }
+            if (!message) {
+                alert('Message is required.');
+                return;
+            }
+    
+            // Prepare the JSONP URL
+            const jsonpUrl = `${endpointUrl}?callback=handleResponse&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`;
+    
+            // Create a script element to send the request
+            const script = document.createElement('script');
+            script.src = jsonpUrl;
+            document.body.appendChild(script);
+            document.body.removeChild(script); // Cleanup script after execution
+        });
+    
+        // Define the callback function expected by JSONP response
+        window.handleResponse = function(response) {
+            if (response && response.status === 'Success') {
+                alert('Thank you for your message. We will get back to you soon.');
+            } else {
+                alert('Failed to send message. Please try again.');
+            }
+        };
+    });
+    </script>
+    
+
+
+  <div class="mb-4 p-4 flex flex-col md:flex-row md:space-x-4 justify-center items-stretch">
+    <div class="w-full md:w-1/3">
+      <div class="h-full p-4 glass rounded-lg border shadow-md">
+        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">Admissions Office</h5>
+        <p class="font-normal text-sm text-gray-700 dark:text-gray-200">Email: admissions.manila@tip.edu.ph, Mobile number: 09171059581, Tel. no. 87339117, 87362580</p>
+      </div>
+    </div>
+    <div class="w-full md:w-1/3">
+      <div class="h-full p-4 glass rounded-lg border shadow-md">
+        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">School Registrar</h5>
+        <p class="font-normal text-sm text-gray-700 dark:text-gray-200">Email them through: registrar.manila@tip.edu.ph</p>
+      </div>
+    </div>
+    <div class="w-full md:w-1/3">
+      <div class="h-full p-4 glass rounded-lg border shadow-md">
+        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">Industrial Engineering Department</h5>
+        <p class="font-normal text-sm text-gray-700 dark:text-gray-200">Email them through: ie-dsc.manila@tip.edu.ph</p>
+      </div>
+    </div>
+  </div>
+  
+  
+    <!-- Container for the cards -->
+   
+  
+    <!-- Container for the map, occupying 2/3 of the section width -->
+    <div class="w-full flex flex-col">
+      <iframe
+        width="100%"
+        height="400px"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15445.248157796455!2d120.9862854!3d14.5996644!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca01052aaf27%3A0xa043ef7fbf26b1f9!2sTechnological%20Institute%20of%20the%20Philippines!5e0!3m2!1sen!2sus!4v1652765854742!5m2!1sen!2sus">
+      </iframe>
+    </div>
+    
 </Layout>
