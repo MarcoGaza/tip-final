@@ -11,62 +11,54 @@ import tasks from './src/utils/tasks';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS, SITE } from './src/utils/config.ts';
 import react from "@astrojs/react";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Dynamic script integration based on analytics configuration
 const whenExternalScripts = (items = []) => ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
-// https://astro.build/config
 export default defineConfig({
   site: SITE.site,
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), sitemap(), mdx(), icon({
-    include: {
-      tabler: ['*'],
-      'flat-color-icons': [
-        'home',
-        'about',
-        'briefcase',
-        'graduation-cap',
-        'library',
-        'engineering',
-        'todo-list',
-        'org-unit',
-        'reading-ebook',
-        'news',
-        'idea',
-        'calendar',
-        'conference-call',
-        'business-contact',
-        'template',
-        'gallery',
-        'approval',
-        'document',
-        'advertising',
-        'currency-exchange',
-        'voice-presentation',
-        'database',
-        'manager'
-      ]
-    }
-  }), ...whenExternalScripts(() => partytown({
-    config: {
-      forward: ['dataLayer.push']
-    }
-  })), compress({
-    CSS: true,
-    HTML: {
-      'html-minifier-terser': {
-        removeAttributeQuotes: false
+  integrations: [
+    tailwind({
+      applyBaseStyles: false
+    }), 
+    sitemap(), 
+    mdx(), 
+    icon({
+      include: {
+        tabler: ['*'],
+        'flat-color-icons': [
+          'home', 'about', 'briefcase', 'graduation-cap', 'library', 'engineering',
+          'todo-list', 'org-unit', 'reading-ebook', 'news', 'idea', 'calendar',
+          'conference-call', 'business-contact', 'template', 'gallery', 'approval',
+          'document', 'advertising', 'currency-exchange', 'voice-presentation', 'database', 'manager'
+        ]
       }
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: false,
-    Logger: 1
-  }), tasks(), react()],
+    }), 
+    ...whenExternalScripts(() => partytown({
+      config: {
+        forward: ['dataLayer.push']
+      }
+    })), 
+    compress({
+      CSS: true,
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false
+        }
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+      Logger: 1
+    }), 
+    tasks(), 
+    react()
+  ],
   image: {
     service: squooshImageService()
   },
