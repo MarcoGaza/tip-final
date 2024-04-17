@@ -14,8 +14,7 @@ const activeMarquees = marquees.filter(marquee => {
   return (!startDate || startDate <= currentDate) && (!endDate || endDate >= currentDate);
 });
 
-// Logging for debugging
-console.log("Active Marquees:", activeMarquees);
+
 
 export interface Props {
   id?: string;

@@ -3,3 +3,4 @@ astrojs
 partytown
 Rehype
 squoosh
+tabler
